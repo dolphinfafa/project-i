@@ -130,3 +130,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# The name of the cookie to use for sessions.
+# https://docs.djangoproject.com/en/1.11/ref/settings/#session-cookie-name
+SESSION_COOKIE_NAME = '__ssid'
