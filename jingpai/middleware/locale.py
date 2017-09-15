@@ -82,12 +82,12 @@ class LocaleSetterMiddleware(MiddlewareMixin):
         lang_code = request.GET.get('locale')
         if not lang_code:
             return
-        next = request.path
-        response = self.response_redirect_class(next) if next else HttpResponse(status=204)
+        next_path = request.path
+        response = self.response_redirect_class(next_path) if next_path else HttpResponse(status=204)
         if lang_code and check_for_language(lang_code):
-            if next:
-                next_trans = translate_url(next, lang_code)
-                if next_trans != next:
+            if next_path:
+                next_trans = translate_url(next_path, lang_code)
+                if next_trans != next_path:
                     response = self.response_redirect_class(next_trans)
             if hasattr(request, 'session'):
                 request.session[LANGUAGE_SESSION_KEY] = lang_code
