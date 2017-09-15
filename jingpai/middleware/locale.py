@@ -1,12 +1,16 @@
 "This is the locale selecting middleware that will look at accept headers with redirects"
 
+from django import http
 from django.conf import settings
 from django.conf.urls.i18n import is_language_prefix_patterns_used
 from django.http import HttpResponseRedirect
 from django.urls import get_script_prefix, is_valid_path
+from django.urls import translate_url
 from django.utils import translation
 from django.utils.cache import patch_vary_headers
 from django.utils.deprecation import MiddlewareMixin
+from django.utils.translation import (
+    LANGUAGE_SESSION_KEY, check_for_language, )
 
 
 class LocaleMiddleware(MiddlewareMixin):
@@ -64,4 +68,34 @@ class LocaleMiddleware(MiddlewareMixin):
             patch_vary_headers(response, ('Accept-Language',))
         if 'Content-Language' not in response:
             response['Content-Language'] = language
+        return response
+
+
+class LocaleSetterMiddleware(MiddlewareMixin):
+    """
+    A middleware which set user preferred language according to url parameter
+
+    Inspired by django.views.i18n.set_language()
+    """
+
+    def process_request(self, request):
+        lang_code = request.GET.get('locale')
+        if not lang_code:
+            return
+        next = request.path
+        response = http.HttpResponseRedirect(next) if next else http.HttpResponse(status=204)
+        if lang_code and check_for_language(lang_code):
+            if next:
+                next_trans = translate_url(next, lang_code)
+                if next_trans != next:
+                    response = http.HttpResponseRedirect(next_trans)
+            if hasattr(request, 'session'):
+                request.session[LANGUAGE_SESSION_KEY] = lang_code
+            else:
+                response.set_cookie(
+                    settings.LANGUAGE_COOKIE_NAME, lang_code,
+                    max_age=settings.LANGUAGE_COOKIE_AGE,
+                    path=settings.LANGUAGE_COOKIE_PATH,
+                    domain=settings.LANGUAGE_COOKIE_DOMAIN,
+                )
         return response
