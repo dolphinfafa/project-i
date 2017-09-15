@@ -1,1 +1,5 @@
 -r base
+
+# A configurable set of panels that display various debug information about the current request/response.
+# https://django-debug-toolbar.readthedocs.io/en/1.8/
+django-debug-toolbar==1.8
