@@ -1,0 +1,7 @@
+# The web framework for perfectionists with deadlines.
+# https://docs.djangoproject.com/en/1.11/
+Django>=1.11,<2
+
+# Allows you to utilize 12factor inspired environment variables to configure your Django application.
+# https://django-environ.readthedocs.io/en/latest/
+django-environ==0.4.4

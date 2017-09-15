@@ -1,0 +1,5 @@
+-r base
+
+# Python WSGI HTTP Server for UNIX.
+# http://gunicorn.org/#docs
+gunicorn==19.7.1
