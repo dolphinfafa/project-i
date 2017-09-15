@@ -1,9 +1,8 @@
 "This is the locale selecting middleware that will look at accept headers with redirects"
 
-from django import http
 from django.conf import settings
 from django.conf.urls.i18n import is_language_prefix_patterns_used
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponsePermanentRedirect, HttpResponse
 from django.urls import get_script_prefix, is_valid_path
 from django.urls import translate_url
 from django.utils import translation
@@ -77,18 +76,19 @@ class LocaleSetterMiddleware(MiddlewareMixin):
 
     Inspired by django.views.i18n.set_language()
     """
+    response_redirect_class = HttpResponsePermanentRedirect
 
     def process_request(self, request):
         lang_code = request.GET.get('locale')
         if not lang_code:
             return
         next = request.path
-        response = http.HttpResponseRedirect(next) if next else http.HttpResponse(status=204)
+        response = self.response_redirect_class(next) if next else HttpResponse(status=204)
         if lang_code and check_for_language(lang_code):
             if next:
                 next_trans = translate_url(next, lang_code)
                 if next_trans != next:
-                    response = http.HttpResponseRedirect(next_trans)
+                    response = self.response_redirect_class(next_trans)
             if hasattr(request, 'session'):
                 request.session[LANGUAGE_SESSION_KEY] = lang_code
             else:
