@@ -15,6 +15,8 @@ import environ
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = environ.Path(__file__) - 3  # project-i/config/settings/base.py - 3 = project-i/jingpai
 
+APPS_DIR = BASE_DIR.path('jingpai')
+
 # Load operating system environment variables and then prepare to use them
 env = environ.Env()
 
@@ -48,7 +50,7 @@ ROOT_URLCONF = 'jingpai.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [APPS_DIR('templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
