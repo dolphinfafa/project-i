@@ -38,6 +38,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -96,7 +97,25 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+# Default language
+# https://docs.djangoproject.com/en/1.11/ref/settings/#language-code
+LANGUAGE_CODE = 'en'
+
+# All available languages
+# https://docs.djangoproject.com/en/1.11/ref/settings/#languages
+from django.utils.translation import ugettext_lazy as _
+
+LANGUAGES = (
+    ('en', _(u'English')),
+    ('zh-hans', _(u'简体中文')),
+    ('zh-hant', _(u'繁體中文')),
+)
+
+# A list of directories where Django looks for translation files.
+# https://docs.djangoproject.com/en/1.11/ref/settings/#locale-paths
+LOCALE_PATHS = (
+    APPS_DIR('locale'),
+)
 
 TIME_ZONE = 'UTC'
 
