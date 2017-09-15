@@ -84,7 +84,7 @@ class LocaleSetterMiddleware(MiddlewareMixin):
             return
         next_path = request.path
         response = self.response_redirect_class(next_path) if next_path else HttpResponse(status=204)
-        if lang_code and check_for_language(lang_code):
+        if check_for_language(lang_code):
             if next_path:
                 next_trans = translate_url(next_path, lang_code)
                 if next_trans != next_path:
