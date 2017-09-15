@@ -1,4 +1,4 @@
-"This is the locale selecting middleware that will look at accept headers"
+"This is the locale selecting middleware that will look at accept headers with redirects"
 
 from django.conf import settings
 from django.conf.urls.i18n import is_language_prefix_patterns_used
@@ -22,10 +22,11 @@ class LocaleMiddleware(MiddlewareMixin):
     def process_request(self, request):
         urlconf = getattr(request, 'urlconf', settings.ROOT_URLCONF)
         i18n_patterns_used, prefixed_default_language = is_language_prefix_patterns_used(urlconf)
-        language = translation.get_language_from_request(request, check_path=i18n_patterns_used)
         language_from_path = translation.get_language_from_path(request.path_info)
-        if not language_from_path and i18n_patterns_used and not prefixed_default_language:
-            language = settings.LANGUAGE_CODE
+        if not language_from_path and i18n_patterns_used:
+            language = translation.get_language_from_request(request, check_path=i18n_patterns_used)
+        else:
+            language = language_from_path or settings.LANGUAGE_CODE
         translation.activate(language)
         request.LANGUAGE_CODE = translation.get_language()
 
@@ -36,7 +37,7 @@ class LocaleMiddleware(MiddlewareMixin):
         i18n_patterns_used, prefixed_default_language = is_language_prefix_patterns_used(urlconf)
 
         if (response.status_code == 404 and not language_from_path and
-                i18n_patterns_used and prefixed_default_language):
+                i18n_patterns_used and (prefixed_default_language or language != settings.LANGUAGE_CODE)):
             # Maybe the language code is missing in the URL? Try adding the
             # language prefix and redirecting to that URL.
             language_path = '/%s%s' % (language, request.path_info)

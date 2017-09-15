@@ -24,4 +24,5 @@ urlpatterns = [
 
 urlpatterns += i18n_patterns(
     url(r'^$', TemplateView.as_view(template_name='pages/home.html'), name='home'),
+    prefix_default_language=False,
 )
