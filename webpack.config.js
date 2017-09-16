@@ -10,6 +10,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: 'templates/base.html',
+      inject: 'body',
       filename: 'base.html',
     }),
   ],
