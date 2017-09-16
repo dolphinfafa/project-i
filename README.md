@@ -5,7 +5,12 @@
 ## Prerequisites
 
 - Python 3.6
+- [Yarn](https://yarnpkg.com/en/docs/install)
 
+## Install Node Packages
+```
+yarn install
+```
 ## Install requirements
 
 ### Development
