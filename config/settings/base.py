@@ -154,6 +154,13 @@ STATICFILES_DIRS = (
     BASE_DIR('templates'),
 )
 
+# https://docs.djangoproject.com/en/1.11/ref/contrib/staticfiles/#staticfiles-finders
+STATICFILES_FINDERS = (
+    'jingpai.staticfiles.finders.StaticRootFinder',
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
+
 # The name of the cookie to use for sessions.
 # https://docs.djangoproject.com/en/1.11/ref/settings/#session-cookie-name
 SESSION_COOKIE_NAME = '__ssid'
