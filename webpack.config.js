@@ -1,7 +1,9 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  entry: './static/js/bootstrap.js',
+  entry: {
+    bootstrap: ['./static/js/bootstrap.js'],
+  },
   output: {
     path: __dirname + '/dist',
     filename: 'js/bootstrap.js',
@@ -10,6 +12,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: 'templates/base.html',
+      chunks: ['bootstrap'],
       inject: 'body',
       filename: 'base.html',
     }),
