@@ -32,3 +32,8 @@ pip install -r requirements/test
 ```
 python manage.py migrate
 ```
+
+## Show code quality report
+```
+make report
+```
