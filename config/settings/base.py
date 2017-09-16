@@ -126,7 +126,7 @@ LANGUAGES = (
 # A list of directories where Django looks for translation files.
 # https://docs.djangoproject.com/en/1.11/ref/settings/#locale-paths
 LOCALE_PATHS = (
-    APPS_DIR('locale'),
+    BASE_DIR('locale'),
 )
 
 TIME_ZONE = 'UTC'
