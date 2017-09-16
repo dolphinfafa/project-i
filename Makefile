@@ -8,7 +8,7 @@ run:
 
 .PHONY: run-prod
 run-prod:
-	@gunicorn jingpai.wsgi
+	@gunicorn config.wsgi
 
 .PHONY: migrate
 migrate:
