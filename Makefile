@@ -9,3 +9,11 @@ run-prod:
 .PHONY: migrate
 migrate:
 	@python manage.py migrate
+
+.PHONY: pylint
+pylint:
+	@pylint jingpai
+
+.PHONY: report
+report: pylint
+	@flake8
