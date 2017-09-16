@@ -22,7 +22,8 @@ class LocaleMiddleware(MiddlewareMixin):
     """
     response_redirect_class = HttpResponseRedirect
 
-    def process_request(self, request):
+    @staticmethod
+    def process_request(request):
         urlconf = getattr(request, 'urlconf', settings.ROOT_URLCONF)
         i18n_patterns_used, _ = is_language_prefix_patterns_used(urlconf)
         language_from_path = translation.get_language_from_path(request.path_info)
