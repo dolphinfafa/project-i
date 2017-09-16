@@ -1,5 +1,11 @@
 -r base
 
+# A tool that checks for errors in Python code
+# https://pylint.readthedocs.io/en/latest/
+pylint==1.7.2
+pylint-common==0.2.5
+pylint-django==0.7.2
+
 # A configurable set of panels that display various debug information about the current request/response.
 # https://django-debug-toolbar.readthedocs.io/en/1.8/
 django-debug-toolbar==1.8
