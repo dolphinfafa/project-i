@@ -1,0 +1,23 @@
+{
+  "name": "jingpai.co.uk",
+  "version": "1.0.0",
+  "description": "Jingpai.co.uk Front-End Dev Packages",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dolphinfafa/project-i.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dolphinfafa/project-i/issues"
+  },
+  "scripts": {},
+  "homepage": "https://github.com/dolphinfafa/project-i",
+  "devDependencies": {
+    "webpack": "3.6.0",
+    "gulp": "3.9.1"
+  },
+  "dependencies": {
+  },
+  "engines": {
+    "node": ">=6.11.0"
+  }
+}
