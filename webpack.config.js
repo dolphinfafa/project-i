@@ -5,7 +5,7 @@ module.exports = {
   output: {
     path: __dirname + '/dist',
     filename: 'js/bootstrap.js',
-    publicPath: '/',
+    publicPath: '/static/',
   },
   plugins: [
     new HtmlWebpackPlugin({
