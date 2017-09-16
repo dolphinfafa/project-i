@@ -37,3 +37,8 @@ python manage.py migrate
 ```
 make report
 ```
+
+## Build static files for deployment
+```
+make build
+```

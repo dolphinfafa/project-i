@@ -12,8 +12,10 @@
   "scripts": {},
   "homepage": "https://github.com/dolphinfafa/project-i",
   "devDependencies": {
+    "gulp": "3.9.1",
     "webpack": "3.6.0",
-    "gulp": "3.9.1"
+    "html-webpack-plugin": "2.30.1",
+    "bootstrap": "4.0.0-beta"
   },
   "dependencies": {
   },

@@ -9,13 +9,15 @@ https://docs.djangoproject.com/en/1.11/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
+import os
 
 import environ
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = environ.Path(__file__) - 3  # project-i/config/settings/base.py - 3 = project-i/jingpai
 
-APPS_DIR = BASE_DIR.path('jingpai')
+# Front-end files dir for deployment
+DIST_DIR = BASE_DIR.path('dist')
 
 # Load operating system environment variables and then prepare to use them
 env = environ.Env()
@@ -63,7 +65,7 @@ ROOT_URLCONF = 'jingpai.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [APPS_DIR('templates')],
+        'DIRS': [DIST_DIR()],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -144,11 +146,12 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # https://docs.djangoproject.com/en/1.11/ref/settings/#static-root
-STATIC_ROOT = BASE_DIR('assets')
+STATIC_ROOT = DIST_DIR()
 
 # https://docs.djangoproject.com/en/1.11/ref/settings/#std:setting-STATICFILES_DIRS
 STATICFILES_DIRS = (
     BASE_DIR('static'),
+    BASE_DIR('templates'),
 )
 
 # The name of the cookie to use for sessions.

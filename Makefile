@@ -1,3 +1,7 @@
+.PHONY: build
+build:
+	@python manage.py collectstatic --noinput&&webpack
+
 .PHONY: run
 run:
 	@python manage.py runserver
