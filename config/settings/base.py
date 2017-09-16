@@ -140,7 +140,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
+# https://docs.djangoproject.com/en/1.11/ref/settings/#static-url
 STATIC_URL = '/static/'
+
+# https://docs.djangoproject.com/en/1.11/ref/settings/#static-root
+STATIC_ROOT = BASE_DIR('assets')
+
+# https://docs.djangoproject.com/en/1.11/ref/settings/#std:setting-STATICFILES_DIRS
+STATICFILES_DIRS = (
+    BASE_DIR('static'),
+)
 
 # The name of the cookie to use for sessions.
 # https://docs.djangoproject.com/en/1.11/ref/settings/#session-cookie-name

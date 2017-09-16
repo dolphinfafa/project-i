@@ -277,3 +277,6 @@ typings/
 
 
 # End of https://www.gitignore.io/api/node
+
+# Static root dir
+assets
