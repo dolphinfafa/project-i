@@ -7,7 +7,7 @@ module.exports = {
   },
   output: {
     path: __dirname + '/dist',
-    filename: 'js/bootstrap.js',
+    filename: 'js/[name].js',
     publicPath: '/static/',
   },
   module: {
@@ -28,6 +28,6 @@ module.exports = {
       inject: 'body',
       filename: 'base.html',
     }),
-    new ExtractTextWebpackPlugin('css/bootstrap.css'),
+    new ExtractTextWebpackPlugin('css/[name].css'),
   ],
 }
