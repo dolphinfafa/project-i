@@ -4,6 +4,7 @@ const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin')
 module.exports = {
   entry: {
     bootstrap: ['./static/js/bootstrap.js'],
+    instantclick: ['./static/js/instantclick.js'],
   },
   output: {
     path: __dirname + '/dist',
