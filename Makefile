@@ -1,10 +1,10 @@
 .PHONY: build
 build:
-	@python manage.py collectstatic --noinput&&npm run build
+	@python manage.py collectstatic --noinput&&python manage.py compiletemplates&&npm run build
 
 .PHONY: build-prod
 build-prod:
-	@python manage.py collectstatic --noinput --settings=config.settings.production&&npm run build-prod
+	@python manage.py collectstatic --noinput --settings=config.settings.production&&python manage.py compiletemplates --settings=config.settings.production&&npm run build-prod
 
 .PHONY: run
 run:

@@ -42,6 +42,7 @@ THIRD_PARTY_APPS = [
 
 # Apps specific for this project go here.
 LOCAL_APPS = [
+    'jingpai.template_prerender',
 ]
 
 # A list of strings designating all applications that are enabled in this Django installation.
@@ -77,6 +78,10 @@ TEMPLATES = [
         },
     },
 ]
+
+# Used for tempalte pre render
+TEMPLATE_SRC_DIRS = (BASE_DIR('jingpai/templates'),)
+TEMPLATE_CACHE_DIR = BASE_DIR('templates')
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
@@ -150,7 +155,6 @@ STATIC_ROOT = DIST_DIR()
 
 # https://docs.djangoproject.com/en/1.11/ref/settings/#std:setting-STATICFILES_DIRS
 STATICFILES_DIRS = (
-    BASE_DIR('templates'),
 )
 
 # https://docs.djangoproject.com/en/1.11/ref/contrib/staticfiles/#staticfiles-finders

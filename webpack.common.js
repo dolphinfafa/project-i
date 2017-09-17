@@ -14,10 +14,10 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'templates/base.html',
+      template: 'templates/pages/home.html',
       chunks: ['bootstrap'],
       inject: 'body',
-      filename: 'base.html',
+      filename: 'pages/home.html',
     }),
   ],
 }
