@@ -8,7 +8,6 @@ module.exports = {
   },
   output: {
     path: __dirname + '/dist',
-    filename: 'js/[name].js',
     publicPath: '/static/',
   },
   module: {
@@ -16,10 +15,10 @@ module.exports = {
       {
         test: /\.css$/,
         use: ExtractTextWebpackPlugin.extract({
-          fallback: "style-loader",
-          use: "css-loader"
-        })
-      }
+          fallback: 'style-loader',
+          use: 'css-loader',
+        }),
+      },
     ],
   },
   plugins: [
@@ -29,6 +28,5 @@ module.exports = {
       inject: 'body',
       filename: 'base.html',
     }),
-    new ExtractTextWebpackPlugin('css/[name].css'),
   ],
 }

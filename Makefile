@@ -1,6 +1,10 @@
 .PHONY: build
 build:
-	@python manage.py collectstatic --noinput&&webpack
+	@python manage.py collectstatic --noinput&&npm run build
+
+.PHONY: build-prod
+build-prod:
+	@python manage.py collectstatic --noinput --settings=config.settings.production&&npm run build-prod
 
 .PHONY: run
 run:

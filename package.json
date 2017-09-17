@@ -9,20 +9,24 @@
   "bugs": {
     "url": "https://github.com/dolphinfafa/project-i/issues"
   },
-  "scripts": {},
+  "scripts": {
+    "build": "webpack --config webpack.dev.js",
+    "build-prod": "webpack --config webpack.prod.js"
+  },
   "homepage": "https://github.com/dolphinfafa/project-i",
   "devDependencies": {
-    "gulp": "3.9.1",
-    "webpack": "3.6.0",
-    "html-webpack-plugin": "2.30.1",
-    "extract-text-webpack-plugin": "3.0.0",
     "css-loader": "0.28.7",
-    "style-loader": "0.18.2"
+    "extract-text-webpack-plugin": "3.0.0",
+    "gulp": "3.9.1",
+    "html-webpack-plugin": "2.30.1",
+    "style-loader": "0.18.2",
+    "webpack": "3.6.0",
+    "webpack-merge": "4.1.0"
   },
   "dependencies": {
+    "bootstrap": "4.0.0-beta",
     "jquery": "3.2.1",
-    "popper.js": "1.11.0",
-    "bootstrap": "4.0.0-beta"
+    "popper.js": "1.11.0"
   },
   "engines": {
     "node": ">=6.11.0"
