@@ -6,6 +6,7 @@ module.exports = merge(common, {
   output: {
     filename: 'js/[name].js',
   },
+  devtool: 'inline-source-map',
 })
 
 module.exports.plugins.push(new ExtractTextWebpackPlugin('css/[name].css'))
