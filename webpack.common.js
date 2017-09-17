@@ -11,15 +11,7 @@ module.exports = {
     publicPath: '/static/',
   },
   module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: ExtractTextWebpackPlugin.extract({
-          fallback: 'style-loader',
-          use: 'css-loader',
-        }),
-      },
-    ],
+    rules: [],
   },
   plugins: [
     new HtmlWebpackPlugin({

@@ -9,4 +9,13 @@ module.exports = merge(common, {
   devtool: 'inline-source-map',
 })
 
+var cssrule = {
+  test: /\.css$/,
+  use: ExtractTextWebpackPlugin.extract({
+    fallback: 'style-loader',
+    use: 'css-loader',
+  }),
+}
+
+module.exports.module.rules.push(cssrule)
 module.exports.plugins.push(new ExtractTextWebpackPlugin('css/[name].css'))

@@ -1,4 +1,4 @@
-const webpack = require('webpack');
+const webpack = require('webpack')
 const merge = require('webpack-merge')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const common = require('./webpack.common.js')
@@ -21,5 +21,20 @@ module.exports = merge(common, {
   ],
 })
 
+var cssrule = {
+  test: /\.css$/,
+  use: ExtractTextWebpackPlugin.extract({
+    fallback: 'style-loader',
+    use: {
+      loader: 'css-loader',
+      options: {
+        minimize: true,
+        sourceMap: true,
+      },
+    },
+  }),
+}
+
+module.exports.module.rules.push(cssrule)
 module.exports.plugins.push(
   new ExtractTextWebpackPlugin('css/[name].[chunkhash].css'))
