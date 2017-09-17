@@ -1,5 +1,4 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin')
-const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
   entry: {
