@@ -118,7 +118,7 @@ def get_options_for_app(app):
     result = []
 
     # Look for any configuration entry which contains this appname
-    for k, v in options.items():
+    for k, v in list(options.items()):
         if app == k or app in k:
             if isinstance(v, tuple):
                 result += list(v)

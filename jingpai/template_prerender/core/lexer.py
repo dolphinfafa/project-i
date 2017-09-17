@@ -45,7 +45,7 @@ class CompileException(Exception):
             self.line, self.column, self.path, self.message = args
 
         Exception.__init__(self,
-                           u'In: %s\nLine %s, column %s: %s' % (self.path, self.line, self.column, self.message))
+                           'In: %s\nLine %s, column %s: %s' % (self.path, self.line, self.column, self.message))
 
 
 class Token(object):
@@ -158,7 +158,7 @@ class Token(object):
 
             self.output(capture)
 
-        return u''.join(o)
+        return ''.join(o)
 
     def output_params(self, handler):
         list(map(handler, self.params))

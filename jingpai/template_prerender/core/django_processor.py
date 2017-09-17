@@ -167,11 +167,11 @@ class DjangoTag(Token):
         return list(i.output_as_string() for i in iterator)
 
     def output(self, handler):
-        handler(u'{%')
+        handler('{%')
         for c in self.children:
             handler(c)
-            handler(u' ')
-        handler(u'%}')
+            handler(' ')
+        handler('%}')
 
 
 class DjangoVariable(Token):
@@ -183,9 +183,9 @@ class DjangoVariable(Token):
         return self.__varname
 
     def output(self, handler):
-        handler(u'{{')
+        handler('{{')
         handler(self.__varname)
-        handler(u'}}')
+        handler('}}')
 
 
 class DjangoPreprocessorConfigTag(Token):
@@ -240,13 +240,13 @@ class DjangoExtendsTag(Token):
 
     def output(self, handler):
         if self.template_name_is_variable:
-            handler(u'{%extends ')
+            handler('{%extends ')
             handler(self.template_name)
-            handler(u'%}')
+            handler('%}')
         else:
-            handler(u'{%extends "')
+            handler('{%extends "')
             handler(self.template_name)
-            handler(u'"%}')
+            handler('"%}')
 
 
 class DjangoIncludeTag(Token):
@@ -283,13 +283,13 @@ class DjangoIncludeTag(Token):
             handler('%}')
 
         if self.template_name_is_variable:
-            handler(u'{%include ')
+            handler('{%include ')
             handler(self.template_name)
-            handler(u'%}')
+            handler('%}')
         else:
-            handler(u'{%include "')
+            handler('{%include "')
             handler(self.template_name)
-            handler(u'"%}')
+            handler('"%}')
 
         if self.with_params:
             handler('{%endwith%}')
@@ -312,9 +312,9 @@ class DjangoDecorateTag(DjangoContainer):
             raise CompileException(self, 'Do not use variable template names in {% decorate %}')
 
     def output(self, handler):
-        handler(u'{%decorate "%s" %}' % self.template_name)
+        handler('{%decorate "%s" %}' % self.template_name)
         handler(self.children)
-        handler(u'{%enddecorate%}')
+        handler('{%enddecorate%}')
 
 
 class NoLiteraleException(Exception):
@@ -342,9 +342,9 @@ class DjangoLoadTag(Token):
         self.modules = [p.output_as_string() for p in params[1:]]
 
     def output(self, handler):
-        handler(u'{% load ')
-        handler(u' '.join(self.modules))
-        handler(u'%}')
+        handler('{% load ')
+        handler(' '.join(self.modules))
+        handler('%}')
 
 
 class DjangoMacroTag(DjangoContainer):  # TODO: not standard Django -> should be removed
@@ -355,11 +355,11 @@ class DjangoMacroTag(DjangoContainer):  # TODO: not standard Django -> should be
         self.macro_name = name[1:-1]
 
     def output(self, handler):
-        handler(u'{%macro "')
+        handler('{%macro "')
         handler(self.macro_name)
-        handler(u'"%}')
+        handler('"%}')
         Token.output(self, handler)
-        handler(u'{%endmacro%}')
+        handler('{%endmacro%}')
 
 
 class DjangoCallMacroTag(Token):  # TODO: not standard Django -> should be removed
@@ -370,9 +370,9 @@ class DjangoCallMacroTag(Token):  # TODO: not standard Django -> should be remov
         self.macro_name = name[1:-1]
 
     def output(self, handler):
-        handler(u'{%callmacro "')
+        handler('{%callmacro "')
         handler(self.macro_name)
-        handler(u'"%}')
+        handler('"%}')
 
 
 class DjangoIfTag(DjangoContainer):
@@ -384,9 +384,9 @@ class DjangoIfTag(DjangoContainer):
         self._params = params
 
     def output(self, handler):
-        handler(u'{%if ')
+        handler('{%if ')
         handler(' '.join(p.output_as_string() for p in self._params[1:]))
-        handler(u'%}')
+        handler('%}')
 
         list(map(handler, self.children))
 
@@ -394,10 +394,10 @@ class DjangoIfTag(DjangoContainer):
         # NOTE: nest_block_level_elements will place the second part into
         # children2
         if hasattr(self, 'children2'):
-            handler(u'{%else%}')
+            handler('{%else%}')
             list(map(handler, self.children2))
 
-        handler(u'{%endif%}')
+        handler('{%endif%}')
 
 
 class DjangoIfEqualTag(DjangoContainer):
@@ -411,18 +411,18 @@ class DjangoIfEqualTag(DjangoContainer):
             raise CompileException(self, '{% ifequal %} needs exactly two parameters')
 
     def output(self, handler):
-        handler(u'{%ifequal ')
+        handler('{%ifequal ')
         handler(' '.join(p.output_as_string() for p in self._params[1:]))
-        handler(u'%}')
+        handler('%}')
 
         list(map(handler, self.children))
 
         # Render {% else %} if this node had an else-block
         if hasattr(self, 'children2'):
-            handler(u'{%else%}')
+            handler('{%else%}')
             list(map(handler, self.children2))
 
-        handler(u'{%endifequal%}')
+        handler('{%endifequal%}')
 
 
 class DjangoBlockTag(DjangoContainer):
@@ -436,11 +436,11 @@ class DjangoBlockTag(DjangoContainer):
         self.block_name = params[1].output_as_string()
 
     def output(self, handler):
-        handler(u'{%block ')
+        handler('{%block ')
         handler(self.block_name)
-        handler(u'%}')
+        handler('%}')
         Token.output(self, handler)
-        handler(u'{%endblock%}')
+        handler('{%endblock%}')
 
 
 # ====================================[ Parser extensions ]=====================================
@@ -606,7 +606,7 @@ def _process_extends(tree, context):
 
             # Retreive list of block tags in the outer scope of the child template.
             # These are the blocks which at least have to exist in the parent.
-            outer_tree_blocks = list(filter(lambda b: isinstance(b, DjangoBlockTag), tree.children))
+            outer_tree_blocks = list([b for b in tree.children if isinstance(b, DjangoBlockTag)])
 
             # For every {% block %} in the base tree
             for base_block in base_tree_blocks:

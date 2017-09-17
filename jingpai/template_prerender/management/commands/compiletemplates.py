@@ -36,7 +36,7 @@ class Command(BaseCommand):
             self._render_template(*queue[i])
 
         # # Show all errors once again.
-        print(u'\n*** %i template files processed, %i render errors ***' % (len(queue), len(self._errors)))
+        print(('\n*** %i template files processed, %i render errors ***' % (len(queue), len(self._errors))))
 
         # Ring bell :)
         print('\x07')
@@ -146,7 +146,7 @@ class Command(BaseCommand):
 
         except CompileException as e:
             # Print the error
-            self.print_error(u'ERROR:  %s' % str(e))
+            self.print_error('ERROR:  %s' % str(e))
 
             print('Failed')
 
@@ -155,7 +155,7 @@ class Command(BaseCommand):
 
         except TemplateDoesNotExist as e:
             if self.verbosity >= 2:
-                print(u'WARNING: Template does not exist:  %s' % str(e))
+                print(('WARNING: Template does not exist:  %s' % str(e)))
 
     @staticmethod
     def _create_dir(newdir):
