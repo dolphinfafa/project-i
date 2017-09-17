@@ -1,9 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+# pylint: skip-file
 """
 Django template preprocessor.
-Author: Jonathan Slenders, City Live
+Author: jmp0xf, Jonathan Slenders, City Live
 """
+__author__ = 'Jonathan Slenders, City Live'
+__all__ = ('Token', 'State', 'Push', 'Pop', 'Record', 'Shift', 'StartToken', 'StopToken', 'Error',)
+
+import re
+from itertools import chain
 
 """
 Tokenizer for a template preprocessor.
@@ -14,12 +20,6 @@ language. The actual engine can be found in lexer_engine.py
 The Token class is the base class for any node in the parse tree.
 """
 
-__author__ = 'Jonathan Slenders, City Live'
-__all__ = ('Token', 'State', 'Push', 'Pop', 'Record', 'Shift', 'StartToken', 'StopToken', 'Error', )
-
-import re
-from itertools import chain
-
 
 class CompileException(Exception):
     def __init__(self, *args):
@@ -29,7 +29,7 @@ class CompileException(Exception):
         CompileException(token, message)
         CompileException(line, column, path, message)
         """
-        if isinstance(args[0], basestring):
+        if isinstance(args[0], str):
             self.line, self.column, self.path, self.message = 0, 0, '', args[0]
 
         elif isinstance(args[0], Token):
@@ -44,22 +44,22 @@ class CompileException(Exception):
         else:
             self.line, self.column, self.path, self.message = args
 
-
         Exception.__init__(self,
-            u'In: %s\nLine %s, column %s: %s' % (self.path, self.line, self.column, self.message))
+                           u'In: %s\nLine %s, column %s: %s' % (self.path, self.line, self.column, self.message))
 
 
 class Token(object):
     """
     Token in the parse tree
     """
+
     def __init__(self, name='unknown-node', line=0, column=0, path=''):
         self.name = name
         self.line = line
         self.path = path
         self.column = column
-        self.children = [] # nest_block_level_elements can also create a .children2, .children3 ...
-        self.params = [] # 2nd child list, used by the parser
+        self.children = []  # nest_block_level_elements can also create a .children2, .children3 ...
+        self.params = []  # 2nd child list, used by the parser
 
     def append(self, child):
         self.children.append(child)
@@ -79,17 +79,17 @@ class Token(object):
         except AttributeError:
             pass
 
-        # Alternatively, we could write the following as well, but
-        # the above is slightly faster.
+            # Alternatively, we could write the following as well, but
+            # the above is slightly faster.
 
-        # i = 2
-        # while hasattr(self, 'children%i' % i):
-        #     yield getattr(self, 'children%i' % i)
-        #     i += 1
+            # i = 2
+            # while hasattr(self, 'children%i' % i):
+            #     yield getattr(self, 'children%i' % i)
+            #     i += 1
 
     @property
     def all_children(self):
-        return chain(* self.children_lists)
+        return chain(*self.children_lists)
 
     def get_childnodes_with_name(self, name):
         for children in self.children_lists:
@@ -104,12 +104,12 @@ class Token(object):
         result = []
 
         result.append('\033[34m')
-        result.append ("%s(%s,%s) %s {\n" % (self.name, str(self.line), str(self.column), self.__class__.__name__))
+        result.append("%s(%s,%s) %s {\n" % (self.name, str(self.line), str(self.column), self.__class__.__name__))
         result.append('\033[0m')
 
         children_result = []
         for t in self.children:
-            if isinstance(t, basestring):
+            if isinstance(t, str):
                 children_result.append('str(%s)\n' % t)
             else:
                 children_result.append("%s\n" % t._print())
@@ -127,14 +127,14 @@ class Token(object):
         To be overriden in the parse tree. (an override can output additional information.)
         """
         for children in self.children_lists:
-            map(handler, children)
+            list(map(handler, children))
 
     def _output(self, handler):
         """
         Original output method.
         """
         for children in self.children_lists:
-            map(handler, children)
+            list(map(handler, children))
 
     def output_as_string(self, use_original_output_method=False):
         """
@@ -143,23 +143,25 @@ class Token(object):
         o = []
         if use_original_output_method:
             def capture(s):
-                if isinstance(s, basestring):
+                if isinstance(s, str):
                     o.append(s)
                 else:
                     s._output(capture)
+
             self._output(capture)
         else:
             def capture(s):
-                if isinstance(s, basestring):
+                if isinstance(s, str):
                     o.append(s)
                 else:
                     s.output(capture)
+
             self.output(capture)
 
         return u''.join(o)
 
     def output_params(self, handler):
-        map(handler, self.params)
+        list(map(handler, self.params))
 
     def __unicode__(self):
         """ Just for debugging the parser """
@@ -175,7 +177,7 @@ class Token(object):
         `dont_enter` parameter can receive a list of node classes to
         be excluded for searching.
         """
-                    # TODO: this is a hard limit to 3 child nodes, (better for performance but not optimal)
+        # TODO: this is a hard limit to 3 child nodes, (better for performance but not optimal)
         for c in chain(self.children, getattr(self, 'children2', []), getattr(self, 'children3', [])):
             if isinstance(c, classes):
                 yield c
@@ -195,11 +197,10 @@ class Token(object):
         """
         iterator = self.child_nodes_of_class(classes, dont_enter)
         try:
-            iterator.next()
+            next(iterator)
             return True
         except StopIteration:
             return False
-
 
     def remove_child_nodes_of_class(self, class_):
         """
@@ -252,6 +253,7 @@ class State(object):
     Parse state. Contains a list of regex we my find in the current
     context. Each parse state consists of an ordered list of transitions.
     """
+
     class Transition(object):
         def __init__(self, regex_match, action_list):
             """
@@ -281,13 +283,16 @@ class ParseAction(object):
     """ Abstract base class, does nothing. """
     pass
 
+
 class Push(ParseAction):
     """
     Push this state to the state tack. Parsing
     shall continue by examining this state.
     """
+
     def __init__(self, state_name):
         self.state_name = state_name
+
 
 class Pop(ParseAction):
     """
@@ -295,13 +300,16 @@ class Pop(ParseAction):
     """
     pass
 
+
 class Record(ParseAction):
     """
     Record the matched text into the current
     token.
     """
+
     def __init__(self, value=None):
         self.value = value
+
 
 class Shift(ParseAction):
     """
@@ -309,26 +317,31 @@ class Shift(ParseAction):
     """
     pass
 
+
 class StartToken(ParseAction):
     """
     Push this token to the parse stack. New
     tokens or records shall be inserted as
     child of this one.
     """
+
     def __init__(self, state_name):
         self.state_name = state_name
+
 
 class StopToken(ParseAction):
     """
     Pop the current token from the parse stack.
     """
+
     def __init__(self, state_name=None):
         self.state_name = state_name
+
 
 class Error(ParseAction):
     """
     Raises an error. We don't expect this match here.
     """
+
     def __init__(self, message):
         self.message = message
-

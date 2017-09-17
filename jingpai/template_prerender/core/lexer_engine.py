@@ -1,10 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+# pylint: skip-file
 """
 Django template preprocessor.
-Author: Jonathan Slenders, City Live
+Author: jmp0xf, Jonathan Slenders, City Live
 """
+import codecs
 
+from jingpai.template_prerender.core.lexer import StartToken, Push, Record, Shift, StopToken, Pop, CompileException, \
+    Token, Error
 
 """
 Tokenizer for a template preprocessor.
@@ -13,10 +17,6 @@ Tokenizer for a template preprocessor.
 This tokenizer is designed to parse a language inside a parse tree.
 - It is used to parse django templates. (starting with a parse tree with only a single
   root node containg the full template code as a single string.)
-- The parser is called from the html_processor, to turn the django tree into a
-  html tree by parsing HTML nodes.
-- The parser is called from the css_processor and the js_processor, to parse
-  the css and js nodes in the HTML tree.
 
 So, the result of this tokenizer is a tree, but it can contain tokens of
 different languages.
@@ -25,9 +25,6 @@ different languages.
         By the way: DON'T CHANGE ANYTHING IN THIS FILE, unless you're absolutely sure.
 """
 
-from template_preprocessor.core.lexer import State, StartToken, Push, Record, Shift, StopToken, Pop, CompileException, Token, Error
-
-import codecs
 
 # Pseudo code:
 #
@@ -65,7 +62,7 @@ def tokenize(tree, states, classes_to_replace_by_parsed_content, classes_to_ente
 
         # Position   TODO: this information is only right for the first children-list, not
         #                  for the others!!!
-        line =  node.line
+        line = node.line
         column = node.column
         path = node.path
 
@@ -75,17 +72,17 @@ def tokenize(tree, states, classes_to_replace_by_parsed_content, classes_to_ente
             current_input_node = input_nodes[0]
             del input_nodes[0]
 
-            if isinstance(current_input_node, basestring):
+            if isinstance(current_input_node, str):
                 # Tokenize content
                 string = current_input_node
 
                 # When the string starts with a BOM_UTF8 character, remove it.
-                string = string.lstrip(unicode(codecs.BOM_UTF8, 'utf8'))
+                string = string.lstrip(str(codecs.BOM_UTF8, 'utf8'))
 
                 # We want the regex to be able to match as much as possible,
-                # So, if several basestring nodes, are following each other,
+                # So, if several str nodes, are following each other,
                 # concatenate as one.
-                while input_nodes and isinstance(input_nodes[0], basestring):
+                while input_nodes and isinstance(input_nodes[0], str):
                     # Pop another input node
                     string += input_nodes[0]
                     del input_nodes[0]
@@ -94,16 +91,16 @@ def tokenize(tree, states, classes_to_replace_by_parsed_content, classes_to_ente
                 position = 0
 
                 while position < len(string):
-                    for compiled_regex, action_list in states[ state_stack[-1] ].transitions():
+                    for compiled_regex, action_list in states[state_stack[-1]].transitions():
                         match = compiled_regex.match(string[position:])
 
-                        #print state_stack, string[position:position+10]
+                        # print state_stack, string[position:position+10]
 
                         if match:
                             (start, count) = match.span()
 
                             # Read content
-                            content = string[position : position + count]
+                            content = string[position: position + count]
 
                             # Execute actions for this match
                             for action in action_list:
@@ -122,7 +119,7 @@ def tokenize(tree, states, classes_to_replace_by_parsed_content, classes_to_ente
                                     while f >= 0:
                                         line += 1
                                         column = 1
-                                        content = content[f+1:]
+                                        content = content[f + 1:]
                                         f = content.find('\n')
                                     column += len(content)
 
@@ -138,20 +135,20 @@ def tokenize(tree, states, classes_to_replace_by_parsed_content, classes_to_ente
                                     token_stack.append(token.children)
 
                                 elif isinstance(action, StopToken):
-# TODO: check following constraint!
-# token_stack[-1] is a childnode list now instead of a node. it does no longer
-# have an attribute name!
+                                    # TODO: check following constraint!
+                                    # token_stack[-1] is a childnode list now instead of a node. it does no longer
+                                    # have an attribute name!
 
-#                                    if action.state_name and token_stack[-1].name != action.state_name:
-#                                        raise CompileException(line, column, path, 'Token mismatch')
+                                    # if action.state_name and token_stack[-1].name != action.state_name:
+                                    #     raise CompileException(line, column, path, 'Token mismatch')
 
                                     del token_stack[-1]
 
                                 elif isinstance(action, Error):
                                     raise CompileException(line, column, path, action.message +
-                                                "; near: '%s'" % string[max(0,position-20):position+20])
+                                                           "; near: '%s'" % string[max(0, position - 20):position + 20])
 
-                            break # Out of for
+                            break  # Out of for
 
             # Not a DjangoContent node? Copy in current position.
             else:
@@ -163,18 +160,18 @@ def tokenize(tree, states, classes_to_replace_by_parsed_content, classes_to_ente
                 # Recursively tokenize in this node (start parsing again in nested node)
                 elif isinstance(current_input_node, classes_to_enter):
                     for l in current_input_node.children_lists:
-                        _tokenize(current_input_node, l, state_stack, [ l ], True)
+                        _tokenize(current_input_node, l, state_stack, [l], True)
                     token_stack[-1].append(current_input_node)
 
                 # Any other class, copy in current token
                 else:
                     token_stack[-1].append(current_input_node)
 
-        if root and token_stack != [ nodelist ]:
+        if root and token_stack != [nodelist]:
             top = token_stack[-1]
             raise CompileException(top.line, top.column, top.path, '%s not terminated' % top.name)
 
-    _tokenize(tree, tree.children, ['root'], [ tree.children ], True)
+    _tokenize(tree, tree.children, ['root'], [tree.children], True)
 
 
 def nest_block_level_elements(tree, mappings, _classes=Token, check=None):
@@ -210,8 +207,8 @@ def nest_block_level_elements(tree, mappings, _classes=Token, check=None):
         # Push/Pop stacks
         moving_to_node = []
         moving_to_index = []
-        tags_stack = [] # Stack of lists (top of the list contains a list of
-                    # check_values for possible {% else... %} or {% end... %}-nodes.
+        tags_stack = []  # Stack of lists (top of the list contains a list of
+        # check_values for possible {% else... %} or {% end... %}-nodes.
 
         for c in nodelist[:]:
             # The 'tags' are only concidered tags if they are of one of these classes
@@ -254,7 +251,7 @@ def nest_block_level_elements(tree, mappings, _classes=Token, check=None):
 
                 # Block-level tag created, apply recursively
                 # No, we shouldn't!!! Child nodes of this tag are already processed
-                #nest_block_level_elements(moving_to_node[-1])
+                # nest_block_level_elements(moving_to_node[-1])
 
                 # Continue
                 del moving_to_node[-1]
@@ -267,10 +264,10 @@ def nest_block_level_elements(tree, mappings, _classes=Token, check=None):
 
                 # Move the tags list
                 position = tags_stack[-1].index(check_value)
-                tags_stack[-1] = tags_stack[-1][position+1:]
+                tags_stack[-1] = tags_stack[-1][position + 1:]
 
                 # Children attribute ++
-                moving_to_index[-1] += position+1
+                moving_to_index[-1] += position + 1
 
             # Are we moving nodes
             elif moving_to_node:
@@ -285,5 +282,5 @@ def nest_block_level_elements(tree, mappings, _classes=Token, check=None):
                 nest_block_level_elements(c, mappings, _classes, check)
 
     if moving_to_node:
-        raise CompileException(moving_to_node[-1].line, moving_to_node[-1].column, moving_to_node[-1].path, '%s tag not terminated' % moving_to_node[-1].__class__.__name__)
-
+        raise CompileException(moving_to_node[-1].line, moving_to_node[-1].column, moving_to_node[-1].path,
+                               '%s tag not terminated' % moving_to_node[-1].__class__.__name__)
