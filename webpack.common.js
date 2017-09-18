@@ -14,10 +14,10 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'jingpai/templates/pages/home.html',
+      template: 'jingpai/templates/home/home_page.html',
       chunks: ['bootstrap'],
       inject: 'body',
-      filename: 'pages/home.html',
+      filename: 'home/home_page.html',
     }),
   ],
 }
