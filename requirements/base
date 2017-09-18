@@ -5,3 +5,7 @@ Django>=1.11,<2
 # Allows you to utilize 12factor inspired environment variables to configure your Django application.
 # https://django-environ.readthedocs.io/en/latest/
 django-environ==0.4.4
+
+# Django content management system focused on flexibility and user experience
+# http://docs.wagtail.io/en/v1.12.1/
+wagtail==1.12.1

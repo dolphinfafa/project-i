@@ -38,6 +38,20 @@ DJANGO_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
+    'wagtail.wagtailforms',
+    'wagtail.wagtailredirects',
+    'wagtail.wagtailembeds',
+    'wagtail.wagtailsites',
+    'wagtail.wagtailusers',
+    'wagtail.wagtailsnippets',
+    'wagtail.wagtaildocs',
+    'wagtail.wagtailimages',
+    'wagtail.wagtailsearch',
+    'wagtail.wagtailadmin',
+    'wagtail.wagtailcore',
+
+    'modelcluster',
+    'taggit',
 ]
 
 # Apps specific for this project go here.
@@ -59,6 +73,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'wagtail.wagtailcore.middleware.SiteMiddleware',
+    'wagtail.wagtailredirects.middleware.RedirectMiddleware',
 ]
 
 ROOT_URLCONF = 'jingpai.urls'
@@ -164,6 +180,15 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
+# https://docs.djangoproject.com/en/1.11/ref/settings/#media-root
+MEDIA_ROOT = BASE_DIR('media')
+
+# https://docs.djangoproject.com/en/1.11/ref/settings/#media-url
+MEDIA_URL = '/media/'
+
 # The name of the cookie to use for sessions.
 # https://docs.djangoproject.com/en/1.11/ref/settings/#session-cookie-name
 SESSION_COOKIE_NAME = '__ssid'
+
+# Settings for Wagtail
+WAGTAIL_SITE_NAME = _("Jingpai UK")

@@ -16,8 +16,12 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls import include, url
 from django.conf.urls.i18n import i18n_patterns
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.views.generic import TemplateView
+from wagtail.wagtailadmin import urls as wagtailadmin_urls
+from wagtail.wagtailcore import urls as wagtail_urls
+from wagtail.wagtaildocs import urls as wagtaildocs_urls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -25,6 +29,9 @@ urlpatterns = [
 
 urlpatterns += i18n_patterns(
     url(r'^$', TemplateView.as_view(template_name='pages/home.html'), name='home'),
+    url(r'^cms/', include(wagtailadmin_urls)),
+    url(r'^documents/', include(wagtaildocs_urls)),
+    url(r'', include(wagtail_urls)),  # should be placed at the bottom
     prefix_default_language=False,
 )
 
@@ -34,3 +41,5 @@ if settings.DEBUG:
     urlpatterns = [
         url(r'^__debug__/', include(debug_toolbar.urls)),
     ] + urlpatterns
+
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
