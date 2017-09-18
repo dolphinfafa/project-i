@@ -52,6 +52,8 @@ THIRD_PARTY_APPS = [
 
     'modelcluster',
     'taggit',
+
+    'wagtail_modeltranslation',
 ]
 
 # Apps specific for this project go here.
