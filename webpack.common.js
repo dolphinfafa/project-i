@@ -14,7 +14,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'templates/pages/home.html',
+      template: 'jingpai/templates/pages/home.html',
       chunks: ['bootstrap'],
       inject: 'body',
       filename: 'pages/home.html',

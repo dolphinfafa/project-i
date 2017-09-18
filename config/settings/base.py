@@ -80,8 +80,8 @@ TEMPLATES = [
 ]
 
 # Used for tempalte pre render
-TEMPLATE_SRC_DIRS = (BASE_DIR('jingpai/templates'),)
-TEMPLATE_CACHE_DIR = BASE_DIR('templates')
+TEMPLATE_SRC_DIRS = (BASE_DIR('templates'),)
+TEMPLATE_CACHE_DIR = BASE_DIR('jingpai/templates')
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
