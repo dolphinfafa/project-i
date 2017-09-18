@@ -1,6 +1,7 @@
 const merge = require('webpack-merge')
 const common = require('./webpack.common.js')
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 module.exports = merge(common, {
   output: {
@@ -19,3 +20,18 @@ var cssrule = {
 
 module.exports.module.rules.push(cssrule)
 module.exports.plugins.push(new ExtractTextWebpackPlugin('css/[name].css'))
+
+var pathsToClean = [
+  'dist',
+  'build',
+]
+
+// the clean options to use
+var cleanOptions = {
+  root: __dirname,
+  exclude: [],
+  verbose: true,
+  dry: false,
+}
+
+module.exports.plugins.push(new CleanWebpackPlugin(pathsToClean, cleanOptions))
