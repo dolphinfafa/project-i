@@ -174,6 +174,7 @@ STATIC_ROOT = DIST_DIR()
 
 # https://docs.djangoproject.com/en/1.11/ref/settings/#std:setting-STATICFILES_DIRS
 STATICFILES_DIRS = (
+    BASE_DIR('assets'),
 )
 
 # https://docs.djangoproject.com/en/1.11/ref/contrib/staticfiles/#staticfiles-finders

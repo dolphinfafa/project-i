@@ -7,7 +7,67 @@
     <title>{{ page.seo_title }}</title>
 </head>
 <body>
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <a class="navbar-brand" href="#"><img src="/static/img/logo.png" alt="{% trans "Jingpai Logo" %}"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#intro">{% trans "INTRO" %}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#product">{% trans "PRODUCT" %}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#brand">{% trans "BRAND" %}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">{% trans "EVENTS" %}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-outline-success" href="#contactus" role="button">{% trans "CONTACT US" %}</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
 {% block content %}
 {% endblock content %}
+<footer class="footer mt-5">
+    <div class="container bg-dark text-white">
+        <div class="row pt-3">
+            <div class="col-sm-12 offset-1 col-md-4">
+                <h5>{% trans "ABOUT US" %}</h5>
+                <p>Oriental Drinks Ltd is the official agency of JING Brand in United Kindom.</p>
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <h5>{% trans "USEFUL LINKS" %}</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="http://www.jingpai.com">www.jingpai.com</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-12 col-md" id="contactus">
+                <h5>{% trans "OUR CONTACTS" %}</h5>
+                <address>
+                    <i class="fa fa-map-marker" aria-hidden="true"></i> 38 Portland Road, London, UK, SE25 4PF.<br>
+                    <i class="fa fa-phone" aria-hidden="true"></i> Tony: (+44) 07738407055<br>
+                    <i class="fa fa-envelope" aria-hidden="true"></i> <a href="mailto:info@orientaldrinks.com">info@orientaldrinks.com</a>
+                </address>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                <div>
+                    <p>2017 © All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
 </body>
 </html>

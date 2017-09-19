@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-15 15:41+0000\n"
+"POT-Creation-Date: 2017-09-19 17:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,22 +17,107 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: config/settings/base.py:109
+#: config/settings/base.py:147
 msgid "English"
 msgstr ""
 
-#: config/settings/base.py:110
+#: config/settings/base.py:148
 msgid "简体中文"
 msgstr ""
 
-#: config/settings/base.py:111
+#: config/settings/base.py:149
 msgid "繁體中文"
 msgstr ""
 
-#: jingpai/templates/base.html:6
-msgid "Chinese JING Liqueur"
+#: config/settings/base.py:198
+msgid "Jingpai UK"
 msgstr ""
 
-#: jingpai/templates/pages/home.html:6
-msgid "This is the home page."
+#: jingpai/templates/base.html:12 jingpai/templates/home/home_page.html:12
+#: templates/base.html:12
+msgid "Jingpai Logo"
+msgstr ""
+
+#: jingpai/templates/base.html:20 jingpai/templates/home/home_page.html:20
+#: templates/base.html:20
+msgid "INTRO"
+msgstr ""
+
+#: jingpai/templates/base.html:23 jingpai/templates/home/home_page.html:23
+#: templates/base.html:23
+msgid "PRODUCT"
+msgstr ""
+
+#: jingpai/templates/base.html:26 jingpai/templates/home/home_page.html:26
+#: templates/base.html:26
+msgid "BRAND"
+msgstr ""
+
+#: jingpai/templates/base.html:29 jingpai/templates/home/home_page.html:29
+#: templates/base.html:29
+msgid "EVENTS"
+msgstr ""
+
+#: jingpai/templates/base.html:32 jingpai/templates/home/home_page.html:32
+#: templates/base.html:32
+msgid "CONTACT US"
+msgstr ""
+
+#: jingpai/templates/base.html:44 jingpai/templates/home/home_page.html:174
+#: templates/base.html:44
+msgid "ABOUT US"
+msgstr ""
+
+#: jingpai/templates/base.html:48 jingpai/templates/home/home_page.html:178
+#: templates/base.html:48
+msgid "USEFUL LINKS"
+msgstr ""
+
+#: jingpai/templates/base.html:55 jingpai/templates/home/home_page.html:185
+#: templates/base.html:55
+msgid "OUR CONTACTS"
+msgstr ""
+
+#: jingpai/templates/home/home_page.html:94 templates/home/home_page.html:60
+msgid "Jing Liqueur"
+msgstr ""
+
+#: jingpai/templates/home/home_page.html:100
+#: jingpai/templates/home/home_page.html:108 templates/home/home_page.html:66
+#: templates/home/home_page.html:74
+msgid "The ingredient"
+msgstr ""
+
+#: jingpai/templates/home/home_page.html:114
+#: jingpai/templates/home/home_page.html:116 templates/home/home_page.html:80
+#: templates/home/home_page.html:82
+msgid "Yam"
+msgstr ""
+
+#: jingpai/templates/home/home_page.html:122
+#: jingpai/templates/home/home_page.html:124 templates/home/home_page.html:88
+#: templates/home/home_page.html:90
+msgid "Wolfberry"
+msgstr ""
+
+#: jingpai/templates/home/home_page.html:130
+#: jingpai/templates/home/home_page.html:132 templates/home/home_page.html:96
+#: templates/home/home_page.html:98
+msgid "Cinnamon"
+msgstr ""
+
+#: jingpai/templates/home/home_page.html:138
+#: jingpai/templates/home/home_page.html:140 templates/home/home_page.html:104
+#: templates/home/home_page.html:106
+msgid "Cloves"
+msgstr ""
+
+#: jingpai/templates/home/home_page.html:148 templates/home/home_page.html:114
+msgid ""
+"Other herbs: Angelica, Ginseng, Radix Puerariae, Poria cocos, Jujube, Maca "
+"powder"
+msgstr ""
+
+#: jingpai/templates/home/home_page.html:158 templates/home/home_page.html:124
+msgid "The JING Brand"
 msgstr ""
