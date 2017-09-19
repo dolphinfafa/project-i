@@ -22,7 +22,8 @@ module.exports.module.rules.push(cssrule)
 module.exports.plugins.push(new ExtractTextWebpackPlugin('css/[name].css'))
 
 var pathsToClean = [
-  'dist',
+  'dist/js',
+  'dist/css',
   'build',
 ]
 
