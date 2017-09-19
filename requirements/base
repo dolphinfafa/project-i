@@ -8,7 +8,7 @@ django-environ==0.4.4
 
 # Django content management system focused on flexibility and user experience
 # http://docs.wagtail.io/en/v1.12.1/
-wagtail==1.12.1
+wagtail==1.12.2
 
 # Simple app containing a mixin model that integrates modeltranslation into wagtail panels system.
 # https://wagtail-modeltranslation.readthedocs.io/en/latest/
