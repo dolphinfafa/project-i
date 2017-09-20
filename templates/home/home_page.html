@@ -1,10 +1,11 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load wagtailimages_tags %}
 
 {% block content %}
     <div class="container">
         <header class="jumbotron jumbotron-fluid bg-white d-flex align-items-center justify-content-center" id="intro">
-            <img class="img-fluid" src="/static/img/banner.jpg">
+            {% image page.jumbotron_image original class="img-fluid" %}
             <div class="text-center text-white" style="position:absolute;">
                 <div>
                     <p class="h5">WELCOME TO</p>
