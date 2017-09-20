@@ -18,6 +18,22 @@ run-prod:
 migrate:
 	@python manage.py migrate
 
+.PHONY: migrations
+migrations:
+	@python manage.py makemigrations
+
+.PHONY: messages
+messages:
+	@python manage.py makemessages
+
+.PHONY: templates
+templates:
+	@python manage.py compiletemplates
+
+.PHONY: superuser
+superuser:
+	@python manage.py createsuperuser
+
 .PHONY: pylint
 pylint:
 	@pylint jingpai
