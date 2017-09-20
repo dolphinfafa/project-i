@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-19 17:25+0000\n"
+"POT-Creation-Date: 2017-09-20 08:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,91 +34,131 @@ msgstr ""
 msgid "Jingpai UK"
 msgstr "劲酒英伦"
 
-#: jingpai/templates/base.html:12 jingpai/templates/home/home_page.html:12
-#: templates/base.html:12
+#: jingpai/templates/base.html:14 jingpai/templates/home/home_page.html:14
+#: templates/base.html:14
 msgid "Jingpai Logo"
 msgstr "劲酒"
 
-#: jingpai/templates/base.html:20 jingpai/templates/home/home_page.html:20
-#: templates/base.html:20
+#: jingpai/templates/base.html:22 jingpai/templates/home/home_page.html:22
+#: templates/base.html:22
 msgid "INTRO"
 msgstr "简介"
 
-#: jingpai/templates/base.html:23 jingpai/templates/home/home_page.html:23
-#: templates/base.html:23
+#: jingpai/templates/base.html:25 jingpai/templates/home/home_page.html:25
+#: templates/base.html:25
 msgid "PRODUCT"
 msgstr "产品"
 
-#: jingpai/templates/base.html:26 jingpai/templates/home/home_page.html:26
-#: templates/base.html:26
+#: jingpai/templates/base.html:28 jingpai/templates/home/home_page.html:28
+#: templates/base.html:28
 msgid "BRAND"
 msgstr "品牌"
 
-#: jingpai/templates/base.html:29 jingpai/templates/home/home_page.html:29
-#: templates/base.html:29
+#: jingpai/templates/base.html:31 jingpai/templates/home/home_page.html:31
+#: templates/base.html:31
 msgid "EVENTS"
 msgstr "活动"
 
-#: jingpai/templates/base.html:32 jingpai/templates/home/home_page.html:32
-#: templates/base.html:32
+#: jingpai/templates/base.html:34 jingpai/templates/home/home_page.html:34
+#: templates/base.html:34
 msgid "CONTACT US"
 msgstr "联系我们"
 
-#: jingpai/templates/base.html:44 jingpai/templates/home/home_page.html:174
-#: templates/base.html:44
+#: jingpai/templates/base.html:46 jingpai/templates/home/home_page.html:173
+#: templates/base.html:46
 msgid "ABOUT US"
 msgstr "关于"
 
-#: jingpai/templates/base.html:48 jingpai/templates/home/home_page.html:178
-#: templates/base.html:48
+#: jingpai/templates/base.html:47 jingpai/templates/home/home_page.html:174
+#: templates/base.html:47
+msgid ""
+"Oriental Drinks Ltd is the official agency of JING Brand in United Kingdom."
+msgstr "Oriental Drinks Ltd 是劲牌的官方英国代理机构。"
+
+#: jingpai/templates/base.html:50 jingpai/templates/home/home_page.html:177
+#: templates/base.html:50
 msgid "USEFUL LINKS"
 msgstr "链接"
 
-#: jingpai/templates/base.html:55 jingpai/templates/home/home_page.html:185
-#: templates/base.html:55
+#: jingpai/templates/base.html:57 jingpai/templates/home/home_page.html:184
+#: templates/base.html:57
 msgid "OUR CONTACTS"
 msgstr "联系方式"
 
-#: jingpai/templates/home/home_page.html:94 templates/home/home_page.html:60
+#: jingpai/templates/home/home_page.html:46 templates/home/home_page.html:11
+msgid "WELCOME TO"
+msgstr "欢  迎  光  临"
+
+#: jingpai/templates/home/home_page.html:49 templates/home/home_page.html:14
+msgid "JING LIQUEUR"
+msgstr "中  国  劲  酒"
+
+#: jingpai/templates/home/home_page.html:52 templates/home/home_page.html:17
+msgid "MALE TONIC"
+msgstr "保  健"
+
+#: jingpai/templates/home/home_page.html:96 templates/home/home_page.html:61
 msgid "Jing Liqueur"
 msgstr "劲酒"
 
-#: jingpai/templates/home/home_page.html:100
-#: jingpai/templates/home/home_page.html:108 templates/home/home_page.html:66
-#: templates/home/home_page.html:74
+#: jingpai/templates/home/home_page.html:102
+#: jingpai/templates/home/home_page.html:110 templates/home/home_page.html:67
+#: templates/home/home_page.html:75
 msgid "The ingredient"
 msgstr "成分"
 
-#: jingpai/templates/home/home_page.html:114
-#: jingpai/templates/home/home_page.html:116 templates/home/home_page.html:80
-#: templates/home/home_page.html:82
+#: jingpai/templates/home/home_page.html:116
+#: jingpai/templates/home/home_page.html:118 templates/home/home_page.html:81
+#: templates/home/home_page.html:83
 msgid "Yam"
 msgstr "甘薯"
 
-#: jingpai/templates/home/home_page.html:122
-#: jingpai/templates/home/home_page.html:124 templates/home/home_page.html:88
+#: jingpai/templates/home/home_page.html:119 templates/home/home_page.html:84
+msgid ""
+"Can help alleviate eating disorders, coughs and lung deficiencies. Also "
+"helps strengthen the spleen and stomach, invigoration the Qi."
+msgstr ""
+
+#: jingpai/templates/home/home_page.html:123
+#: jingpai/templates/home/home_page.html:125 templates/home/home_page.html:88
 #: templates/home/home_page.html:90
 msgid "Wolfberry"
 msgstr "枸杞"
 
+#: jingpai/templates/home/home_page.html:126 templates/home/home_page.html:91
+msgid ""
+"Natural aphrodisiac, improves sexual function. Also, beneficial for the "
+"blood, liver and eyes."
+msgstr ""
+
 #: jingpai/templates/home/home_page.html:130
-#: jingpai/templates/home/home_page.html:132 templates/home/home_page.html:96
-#: templates/home/home_page.html:98
+#: jingpai/templates/home/home_page.html:132 templates/home/home_page.html:95
+#: templates/home/home_page.html:97
 msgid "Cinnamon"
 msgstr "肉桂"
 
-#: jingpai/templates/home/home_page.html:138
-#: jingpai/templates/home/home_page.html:140 templates/home/home_page.html:104
-#: templates/home/home_page.html:106
+#: jingpai/templates/home/home_page.html:133 templates/home/home_page.html:98
+msgid ""
+"Sooths stomach aches, kidney deficiencies and bloating. It enhances the "
+"Yang, dispels cold and relieves pain."
+msgstr ""
+
+#: jingpai/templates/home/home_page.html:137
+#: jingpai/templates/home/home_page.html:139 templates/home/home_page.html:102
+#: templates/home/home_page.html:104
 msgid "Cloves"
 msgstr "丁香"
 
-#: jingpai/templates/home/home_page.html:148 templates/home/home_page.html:114
+#: jingpai/templates/home/home_page.html:140 templates/home/home_page.html:105
+msgid "Relieves colds, chest and abdominal pains. Enhances the Yang."
+msgstr ""
+
+#: jingpai/templates/home/home_page.html:147 templates/home/home_page.html:112
 msgid ""
 "Other herbs: Angelica, Ginseng, Radix Puerariae, Poria cocos, Jujube, Maca "
 "powder"
-msgstr ""
+msgstr "其他草药：当归、人参、葛根、茯苓、红枣、玛卡粉"
 
-#: jingpai/templates/home/home_page.html:158 templates/home/home_page.html:124
+#: jingpai/templates/home/home_page.html:157 templates/home/home_page.html:122
 msgid "The JING Brand"
 msgstr "劲酒品牌"
