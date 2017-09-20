@@ -1,9 +1,13 @@
 from django.db import models
+from wagtail.wagtailadmin.edit_handlers import FieldPanel
+from wagtail.wagtailcore.fields import RichTextField
 from wagtail.wagtailcore.models import Page
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 
 
 class HomePage(Page):
+    liqueur_intro = RichTextField(null=True)
+    brand_intro = RichTextField(null=True)
     jumbotron_image = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
@@ -13,5 +17,7 @@ class HomePage(Page):
     )
 
     content_panels = Page.content_panels + [
+        FieldPanel('liqueur_intro', classname="full"),
+        FieldPanel('brand_intro', classname="full"),
         ImageChooserPanel('jumbotron_image'),
     ]

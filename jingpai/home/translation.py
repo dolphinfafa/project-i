@@ -9,4 +9,6 @@ class HomePageTR(TranslationOptions):
     fields = (
         'title',
         'seo_title',
+        'liqueur_intro',
+        'brand_intro',
     )
