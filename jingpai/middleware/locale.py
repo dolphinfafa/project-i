@@ -1,4 +1,6 @@
-"This is the locale selecting middleware that will look at accept headers with redirects"
+"""
+This is the locale selecting middleware that will look at accept headers with redirects
+"""
 
 from django.conf import settings
 from django.conf.urls.i18n import is_language_prefix_patterns_used
