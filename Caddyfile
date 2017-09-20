@@ -1,0 +1,23 @@
+localhost 127.0.0.1 {
+    startup gunicorn -w 4 config.wsgi &
+    gzip
+    proxy / localhost:8000 {
+        transparent
+        except /media /static
+    }
+    log ./logs/access.log
+}
+
+localhost/static 127.0.0.1/static {
+    gzip
+    root {$JING_STATIC_DIR}
+    rewrite {
+        if {path} ends_with .html
+            to /forbidden
+    }
+}
+
+localhost/media 127.0.0.1/media {
+    gzip
+    root {$JING_MEDIA_DIR}
+}
