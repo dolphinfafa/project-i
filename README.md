@@ -47,3 +47,10 @@ make build
 ```
 make build-prod
 ```
+
+## Environment variables for deployment
+```
+$DJANGO_SECRET_KEY     Random String
+$JING_STATIC_DIR       Static Diretory Path
+$JING_MEDIA_DIR        Media Diretory Path
+```
