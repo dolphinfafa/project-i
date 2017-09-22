@@ -5,7 +5,7 @@ require('font-awesome/css/font-awesome.css')
 
 global.$ = global.jQuery = require('jquery')
 var bootstrap = require('./bootstrap3.js')
-var oscar = require('./oscar/ui.js')
+global.oscar = require('./oscar/ui.js')
 require('./bootstrap-datetimepicker/bootstrap-datetimepicker.js')
 require('./bootstrap-datetimepicker/locales/bootstrap-datetimepicker.all.js')
 

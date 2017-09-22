@@ -5,6 +5,7 @@ module.exports = {
     bootstrap: ['./static/js/bootstrap.js'],
     instantclick: ['./static/js/instantclick.js'],
     'oscar/layout': ['./static/oscar/js/layout.js'],
+    'oscar/catalogue/browse': ['./static/oscar/js/catalogue/browse.js'],
   },
   output: {
     path: __dirname + '/dist',
@@ -44,6 +45,12 @@ module.exports = {
       chunks: ['oscar/layout'],
       inject: 'body',
       filename: 'promotions/home.html',
+    }),
+    new HtmlWebpackPlugin({
+      template: 'jingpai/templates/catalogue/browse.html',
+      chunks: ['oscar/catalogue/browse'],
+      inject: 'body',
+      filename: 'catalogue/browse.html',
     }),
   ],
 }
