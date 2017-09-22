@@ -723,7 +723,7 @@ def _group_all_loads(tree):
     for load_tag in tree.child_nodes_of_class(DjangoLoadTag):
         # Keeps tags like {% load ssi from future %} as they are.
         # Concatenating these is invalid.
-        if not ('from' in load_tag.output_as_string() and 'future' in load_tag.output_as_string()):
+        if not ('from' in load_tag.output_as_string()):
             to_remove.append(load_tag)
             # First tag
             if not first_load_tag:
