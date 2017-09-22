@@ -8,13 +8,6 @@
         files in your project, then set USE_LESS = True in your
         settings file. This will enable the on-the-fly less compiler.
     {% endcomment %}
-    {% if use_less %}
-        <link rel="stylesheet/less" type="text/css" href="{% static "oscar/less/styles.less" %}" />
-    {% else %}
-        <link rel="stylesheet" type="text/css" href="{% static "oscar/css/styles.css" %}" />
-    {% endif %}
-    <link rel="stylesheet" href="{% static "oscar/js/bootstrap-datetimepicker/bootstrap-datetimepicker.css" %}" />
-    <link rel="stylesheet" type="text/css" href="{% static "oscar/css/datetimepicker.css" %}" />
 {% endblock %}
 
 {% block layout %}
@@ -67,32 +60,12 @@
     {% include "partials/footer.html" %}
 {% endblock %}
 
-{% block cdn_scripts %}
-  {{ block.super }}
-  {% if use_less and debug %}
-    {# Load the on-the-fly less compiler. Never do this in production. #}
-    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
-  {% endif %}
-{% endblock %}
-
 {# Local scripts #}
 {% block scripts %}
     {{ block.super }}
-    <!-- Twitter Bootstrap -->
-    <script type="text/javascript" src="{% static "oscar/js/bootstrap3/bootstrap.min.js" %}"></script>
-    <!-- Oscar -->
-    <script src="{% static "oscar/js/oscar/ui.js" %}" type="text/javascript" charset="utf-8"></script>
-
-    <script src="{% static "oscar/js/bootstrap-datetimepicker/bootstrap-datetimepicker.js" %}" type="text/javascript" charset="utf-8"></script>
-    <script src="{% static "oscar/js/bootstrap-datetimepicker/locales/bootstrap-datetimepicker.all.js" %}" type="text/javascript" charset="utf-8"></script>
 {% endblock %}
 
 {% block extrascripts %}
     {% include "partials/extrascripts.html" %}
     {{ block.super }}
-{% endblock %}
-
-{% block onbodyload %}
-    {{ block.super }}
-    oscar.init();
 {% endblock %}

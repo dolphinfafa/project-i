@@ -1,3 +1,11 @@
+.PHONY: webpack
+webpack:
+	@npm run build
+
+.PHONY: webpack-prod
+webpack-prod:
+	@npm run build-prod
+
 .PHONY: build
 build:
 	@python manage.py collectstatic --noinput&&python manage.py compiletemplates&&npm run build
