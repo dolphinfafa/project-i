@@ -1,7 +1,6 @@
 require('../css/styles.css')
 require('./bootstrap-datetimepicker/bootstrap-datetimepicker.css')
 require('../css/datetimepicker.css')
-require('font-awesome/css/font-awesome.css')
 
 global.$ = global.jQuery = require('jquery')
 var bootstrap = require('./bootstrap3.js')
