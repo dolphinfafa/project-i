@@ -1,16 +1,9 @@
-{% extends "dashboard/base.html" %}
+{% extends 'dashboard/base.html' %}
 
 {% load category_tags %}
 {% load dashboard_tags %}
 {% load i18n %}
 {% load staticfiles %}
-
-{% block styles %}
-{% endblock %}
-
-{% block extrastyles %}
-    {{ block.super }}
-{% endblock %}
 
 {% block title %}
     {% trans "Dashboard" %} | {{ block.super }}
@@ -110,14 +103,6 @@
         </div>
     </div><!-- /container -->
 
-{% endblock %}
-
-{# Local scripts #}
-{% block scripts %}
-{% endblock %}
-
-{% block extrascripts %}
-    {{ block.super }}
 {% endblock %}
 
 {% block onbodyload %}
