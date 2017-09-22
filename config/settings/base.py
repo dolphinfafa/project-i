@@ -9,9 +9,12 @@ https://docs.djangoproject.com/en/1.11/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
-import os
 
 import environ
+from oscar import OSCAR_MAIN_TEMPLATE_DIR
+from oscar import get_core_apps
+from oscar.defaults import *  # noqa
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = environ.Path(__file__) - 3  # project-i/config/settings/base.py - 3 = project-i/jingpai
@@ -33,8 +36,10 @@ DJANGO_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.flatpages',
 ]
 
 THIRD_PARTY_APPS = [
@@ -54,7 +59,11 @@ THIRD_PARTY_APPS = [
     'taggit',
 
     'wagtail_modeltranslation',
-]
+
+    # For Oscar
+    'compressor',
+    'widget_tweaks',
+] + get_core_apps()
 
 # Apps specific for this project go here.
 LOCAL_APPS = [
@@ -76,6 +85,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'oscar.apps.basket.middleware.BasketMiddleware',
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
     'wagtail.wagtailcore.middleware.SiteMiddleware',
     'wagtail.wagtailredirects.middleware.RedirectMiddleware',
 ]
@@ -85,7 +96,10 @@ ROOT_URLCONF = 'jingpai.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [DIST_DIR()],
+        'DIRS': [
+            DIST_DIR(),
+            OSCAR_MAIN_TEMPLATE_DIR,
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -93,6 +107,12 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                'oscar.apps.search.context_processors.search_form',
+                'oscar.apps.promotions.context_processors.promotions',
+                'oscar.apps.checkout.context_processors.checkout',
+                'oscar.apps.customer.notifications.context_processors.notifications',
+                'oscar.core.context_processors.metadata',
             ],
         },
     },
@@ -104,6 +124,9 @@ TEMPLATE_CACHE_DIR = BASE_DIR('jingpai/templates')
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
+# https://docs.djangoproject.com/en/1.11/ref/settings/#std:setting-SITE_ID
+SITE_ID = 1
+
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
@@ -111,6 +134,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR('db.sqlite3'),
+        'ATOMIC_REQUESTS': True,
     }
 }
 
@@ -196,3 +220,15 @@ SESSION_COOKIE_NAME = '__ssid'
 
 # Settings for Wagtail
 WAGTAIL_SITE_NAME = _("Jingpai UK")
+
+# For Oscar E-commerce
+AUTHENTICATION_BACKENDS = (
+    'oscar.apps.customer.auth_backends.EmailBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.simple_backend.SimpleEngine',
+    },
+}
