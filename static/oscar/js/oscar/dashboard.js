@@ -369,3 +369,5 @@ var oscar = (function(o, $) {
     return o;
 
 })(oscar || {}, jQuery);
+
+module.exports = oscar

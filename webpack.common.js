@@ -5,6 +5,7 @@ module.exports = {
     bootstrap: ['./static/js/bootstrap.js'],
     instantclick: ['./static/js/instantclick.js'],
     'oscar/layout': ['./static/oscar/js/layout.js'],
+    'oscar/dashboard/layout': ['./static/oscar/js/dashboard/layout.js'],
   },
   output: {
     path: __dirname + '/dist',
@@ -29,7 +30,15 @@ module.exports = {
       {
         test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'url-loader?limit=10000&mimetype=image/svg+xml',
-      },],
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        use: [
+          'url-loader?limit=10000',
+          'file-loader',
+        ],
+      },
+    ],
     loaders: [],
   },
   plugins: [],
@@ -50,6 +59,9 @@ const TEMPLATES = {
       'customer/wishlists/wishlists_form.html',
       'catalogue/browse.html',
       'search/results.html',
+    ],
+    'oscar/dashboard/layout': [
+      'dashboard/index.html',
     ],
   },
 }
