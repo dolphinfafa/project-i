@@ -6,6 +6,7 @@ module.exports = {
     instantclick: ['./static/js/instantclick.js'],
     'oscar/layout': ['./static/oscar/js/layout.js'],
     'oscar/dashboard/layout': ['./static/oscar/js/dashboard/layout.js'],
+    'oscar/dashboard/login': ['./static/oscar/js/dashboard/login.js'],
   },
   output: {
     path: __dirname + '/dist',
@@ -63,6 +64,9 @@ const TEMPLATES = {
     'oscar/dashboard/layout': [
       'dashboard/index.html',
     ],
+    'oscar/dashboard/login':[
+      'dashboard/login.html',
+    ]
   },
 }
 
