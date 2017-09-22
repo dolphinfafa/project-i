@@ -59,10 +59,28 @@ module.exports = {
       filename: 'catalogue/category.html',
     }),
     new HtmlWebpackPlugin({
+      template: 'jingpai/templates/catalogue/detail.html',
+      chunks: ['oscar/layout'],
+      inject: 'body',
+      filename: 'catalogue/detail.html',
+    }),
+    new HtmlWebpackPlugin({
+      template: 'jingpai/templates/catalogue/reviews/review_form.html',
+      chunks: ['oscar/layout'],
+      inject: 'body',
+      filename: 'catalogue/reviews/review_form.html',
+    }),
+    new HtmlWebpackPlugin({
       template: 'jingpai/templates/offer/list.html',
       chunks: ['oscar/layout'],
       inject: 'body',
       filename: 'offer/list.html',
+    }),
+    new HtmlWebpackPlugin({
+      template: 'jingpai/templates/customer/wishlists/wishlists_form.html',
+      chunks: ['oscar/layout'],
+      inject: 'body',
+      filename: 'customer/wishlists/wishlists_form.html',
     }),
   ],
 }
