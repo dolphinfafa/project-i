@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import environ
-from oscar import OSCAR_MAIN_TEMPLATE_DIR
 from oscar import get_core_apps
 from oscar.defaults import *  # noqa
 
@@ -98,7 +97,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             DIST_DIR(),
-            OSCAR_MAIN_TEMPLATE_DIR,
+            BASE_DIR('oscar_templates'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
