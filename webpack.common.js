@@ -52,5 +52,11 @@ module.exports = {
       inject: 'body',
       filename: 'catalogue/browse.html',
     }),
+    new HtmlWebpackPlugin({
+      template: 'jingpai/templates/catalogue/category.html',
+      chunks: ['oscar/layout'],
+      inject: 'body',
+      filename: 'catalogue/category.html',
+    }),
   ],
 }
