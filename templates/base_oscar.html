@@ -50,7 +50,7 @@
 
         {# Block for body onload functions #}
         <script type="text/javascript">
-            var callback = function () {{% block onbodyload %}{% endblock %}}
+            var callback = function () { {% block onbodyload %}{% endblock %} }
             if (document.readyState === 'complete' || (document.readyState !== 'loading' &&
               !document.documentElement.doScroll)) {callback()} else {document.addEventListener('DOMContentLoaded', callback)}
         </script>
