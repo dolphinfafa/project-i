@@ -21,3 +21,7 @@ django-oscar==1.5
 # Compresses linked and inline JavaScript or CSS into a single cached file.
 # https://django-compressor.readthedocs.io/en/latest/
 django-compressor==2.2
+
+# ISO country, subdivision, language, currency and script definitions and their translations
+# https://pypi.python.org/pypi/pycountry
+pycountry==17.5.14
