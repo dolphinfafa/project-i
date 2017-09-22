@@ -97,7 +97,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             DIST_DIR(),
-            BASE_DIR('oscar_templates'),
+            BASE_DIR('templates_oscar'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
