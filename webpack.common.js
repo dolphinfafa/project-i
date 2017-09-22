@@ -33,54 +33,38 @@ module.exports = {
       },],
     loaders: [],
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: 'jingpai/templates/home/home_page.html',
-      chunks: ['bootstrap'],
-      inject: 'body',
-      filename: 'home/home_page.html',
-    }),
-    new HtmlWebpackPlugin({
-      template: 'jingpai/templates/promotions/home.html',
-      chunks: ['oscar/layout'],
-      inject: 'body',
-      filename: 'promotions/home.html',
-    }),
-    new HtmlWebpackPlugin({
-      template: 'jingpai/templates/catalogue/browse.html',
-      chunks: ['oscar/catalogue/browse'],
-      inject: 'body',
-      filename: 'catalogue/browse.html',
-    }),
-    new HtmlWebpackPlugin({
-      template: 'jingpai/templates/catalogue/category.html',
-      chunks: ['oscar/layout'],
-      inject: 'body',
-      filename: 'catalogue/category.html',
-    }),
-    new HtmlWebpackPlugin({
-      template: 'jingpai/templates/catalogue/detail.html',
-      chunks: ['oscar/layout'],
-      inject: 'body',
-      filename: 'catalogue/detail.html',
-    }),
-    new HtmlWebpackPlugin({
-      template: 'jingpai/templates/catalogue/reviews/review_form.html',
-      chunks: ['oscar/layout'],
-      inject: 'body',
-      filename: 'catalogue/reviews/review_form.html',
-    }),
-    new HtmlWebpackPlugin({
-      template: 'jingpai/templates/offer/list.html',
-      chunks: ['oscar/layout'],
-      inject: 'body',
-      filename: 'offer/list.html',
-    }),
-    new HtmlWebpackPlugin({
-      template: 'jingpai/templates/customer/wishlists/wishlists_form.html',
-      chunks: ['oscar/layout'],
-      inject: 'body',
-      filename: 'customer/wishlists/wishlists_form.html',
-    }),
-  ],
+  plugins: [],
+}
+
+const TEMPLATES = {
+  root: 'jingpai/templates/',
+  inject: 'body',
+  // Chunk to template paths mapping
+  mapping: {
+    'bootstrap': ['home/home_page.html'],
+    'oscar/layout': [
+      'promotions/home.html',
+      'catalogue/category.html',
+      'catalogue/detail.html',
+      'catalogue/reviews/review_form.html',
+      'offer/list.html',
+      'customer/wishlists/wishlists_form.html',
+    ],
+    'oscar/catalogue/browse': [
+      'catalogue/browse.html',
+    ],
+  },
+}
+
+for (var chunk in TEMPLATES.mapping) {
+  var i = TEMPLATES.mapping[chunk].length
+  while (i--) {
+    var path = TEMPLATES.mapping[chunk][i]
+    module.exports.plugins.push(new HtmlWebpackPlugin({
+      template: TEMPLATES.root + path,
+      chunks: [chunk],
+      inject: TEMPLATES.inject,
+      filename: path,
+    }))
+  }
 }
