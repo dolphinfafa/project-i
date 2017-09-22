@@ -97,7 +97,6 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             DIST_DIR(),
-            BASE_DIR('jingpai/templates'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {

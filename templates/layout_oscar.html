@@ -2,14 +2,6 @@
 {% load staticfiles %}
 {% load promotion_tags %}
 
-{% block styles %}
-    {% comment %}
-        If you are developing Oscar's CSS, or overriding Oscar's CSS
-        files in your project, then set USE_LESS = True in your
-        settings file. This will enable the on-the-fly less compiler.
-    {% endcomment %}
-{% endblock %}
-
 {% block layout %}
     {# Top-horizontal bar with account, notifictions, dashboard links #}
     {% include "partials/nav_accounts.html" %}
@@ -58,16 +50,6 @@
     {% endblock %}
 
     {% include "partials/footer.html" %}
-{% endblock %}
-
-{# Local scripts #}
-{% block scripts %}
-    {{ block.super }}
-{% endblock %}
-
-{% block extrascripts %}
-    {% include "partials/extrascripts.html" %}
-    {{ block.super }}
 {% endblock %}
 
 {% block onbodyload %}

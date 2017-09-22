@@ -23,12 +23,6 @@
             <link rel="shortcut icon" href="{% static "oscar/favicon.ico" %}" />
         {% endblock %}
 
-        {# Block where global CSS will go. #}
-        {% block styles %}{% endblock %}
-
-        {# Additional CSS - specific to certain pages #}
-        {% block extrastyles %}{% endblock %}
-
         {% block extrahead %}{% endblock %}
 
         {% block tracking %}
@@ -40,14 +34,6 @@
     <body id="{% block body_id %}default{% endblock %}" class="{% block body_class %}default{% endblock %}">
         {# Main content goes in this 'layout' block #}
         {% block layout %}{% endblock %}
-
-        {# Local scripts #}
-        {% block scripts %}
-        {% endblock %}
-
-        {# Additional JS scripts #}
-        {% block extrascripts %}{% endblock %}
-
         {# Block for body onload functions #}
         <script type="text/javascript">
             var callback = function () { {% block onbodyload %}{% endblock %} }

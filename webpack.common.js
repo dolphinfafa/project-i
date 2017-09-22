@@ -1,4 +1,5 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin')
+var CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   entry: {
@@ -48,17 +49,90 @@ module.exports = {
 const TEMPLATES = {
   root: 'jingpai/templates/',
   inject: 'body',
+  copy: [
+    // 邮件模板
+    'customer/emails/',
+    // Template Tags里使用到
+    'catalogue/partials/product.html',
+    'customer/history/recently_viewed_products.html',
+    'promotions/default.html',
+
+  ],
   // Chunk to template paths mapping
   mapping: {
     'bootstrap': ['home/home_page.html'],
     'oscar/layout': [
-      'promotions/home.html',
+      '403.html',
+      '404.html',
+      '500.html',
+      'login_forbidden.html',
+
+      'basket/basket.html',
+
+      'catalogue/browse.html',
       'catalogue/category.html',
       'catalogue/detail.html',
+
+      'catalogue/reviews/review_detail.html',
       'catalogue/reviews/review_form.html',
-      'offer/list.html',
+      'catalogue/reviews/review_list.html',
+
+      'checkout/checkout.html',
+      'checkout/gateway.html',
+      'checkout/payment_details.html',
+      'checkout/preview.html',
+      'checkout/shipping_address.html',
+      'checkout/shipping_methods.html',
+      'checkout/thank_you.html',
+      'checkout/user_address_delete.html',
+      'checkout/user_address_form.html',
+
+      'customer/anon_order.html',
+      'customer/login_registration.html',
+      'customer/registration.html',
+
+      'customer/address/address_delete.html',
+      'customer/address/address_form.html',
+      'customer/address/address_list.html',
+
+      'customer/alerts/alert_list.html',
+      'customer/alerts/form.html',
+
+      'customer/email/email_detail.html',
+      'customer/email/email_list.html',
+
+      'customer/notifications/detail.html',
+      'customer/notifications/list.html',
+
+      'customer/order/order_detail.html',
+      'customer/order/order_list.html',
+
+      'customer/profile/change_password_form.html',
+      'customer/profile/profile.html',
+      'customer/profile/profile_delete.html',
+      'customer/profile/profile_form.html',
+
+      'customer/wishlists/wishlists_delete.html',
+      'customer/wishlists/wishlists_delete_product.html',
+      'customer/wishlists/wishlists_detail.html',
       'customer/wishlists/wishlists_form.html',
-      'catalogue/browse.html',
+      'customer/wishlists/wishlists_list.html',
+
+      'flatpages/default.html',
+
+      'offer/detail.html',
+      'offer/list.html',
+      'offer/range.html',
+
+      'promotions/automaticproductlist.html',
+      'promotions/handpickedproductlist.html',
+      'promotions/home.html',
+
+      'registration/password_reset_complete.html',
+      'registration/password_reset_confirm.html',
+      'registration/password_reset_done.html',
+      'registration/password_reset_form.html',
+
       'search/results.html',
     ],
     'oscar/dashboard/layout': [
@@ -152,11 +226,22 @@ const TEMPLATES = {
       'dashboard/vouchers/voucher_form.html',
       'dashboard/vouchers/voucher_list.html',
     ],
-    'oscar/dashboard/login':[
+    'oscar/dashboard/login': [
       'dashboard/login.html',
-    ]
+    ],
   },
 }
+
+var i = TEMPLATES.copy.length
+var copyconf = []
+while (i--) {
+  copyconf.push({
+    from: TEMPLATES.root + TEMPLATES.copy[i],
+    to: module.exports.output.path + '/' + TEMPLATES.copy[i],
+  })
+}
+
+module.exports.plugins.push(new CopyWebpackPlugin(copyconf))
 
 for (var chunk in TEMPLATES.mapping) {
   var i = TEMPLATES.mapping[chunk].length
