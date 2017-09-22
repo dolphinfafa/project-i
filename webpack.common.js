@@ -5,7 +5,6 @@ module.exports = {
     bootstrap: ['./static/js/bootstrap.js'],
     instantclick: ['./static/js/instantclick.js'],
     'oscar/layout': ['./static/oscar/js/layout.js'],
-    'oscar/layout_search': ['./static/oscar/js/layout_search.js'],
   },
   output: {
     path: __dirname + '/dist',
@@ -49,8 +48,6 @@ const TEMPLATES = {
       'catalogue/reviews/review_form.html',
       'offer/list.html',
       'customer/wishlists/wishlists_form.html',
-    ],
-    'oscar/layout_search': [
       'catalogue/browse.html',
       'search/results.html',
     ],

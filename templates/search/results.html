@@ -90,3 +90,8 @@
     {% endif %}
 
 {% endblock %}
+
+{% block onbodyload %}
+    {{ block.super }}
+    oscar.search.init();
+{% endblock %}

@@ -69,3 +69,8 @@
     {% include "partials/extrascripts.html" %}
     {{ block.super }}
 {% endblock %}
+
+{% block onbodyload %}
+    {{ block.super }}
+    oscar.init();
+{% endblock %}

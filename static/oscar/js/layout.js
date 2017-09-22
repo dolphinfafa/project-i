@@ -8,9 +8,3 @@ var bootstrap = require('./bootstrap3.js')
 global.oscar = require('./oscar/ui.js')
 require('./bootstrap-datetimepicker/bootstrap-datetimepicker.js')
 require('./bootstrap-datetimepicker/locales/bootstrap-datetimepicker.all.js')
-
-$(function () {
-    oscar.init()
-  }
-)
-
