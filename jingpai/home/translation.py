@@ -11,4 +11,5 @@ class HomePageTR(TranslationOptions):
         'seo_title',
         'liqueur_intro',
         'brand_intro',
+        'jumbotrons',
     )

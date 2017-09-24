@@ -1,0 +1,27 @@
+/* Makes images fully responsive */
+
+.img-responsive,
+.thumbnail > img,
+.thumbnail a > img,
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.carousel-caption {
+  top: 50%;
+  transform: translateY(-50%);
+  bottom: initial;
+}
+
+.jumbotron-carousel {
+  margin-top: 50px;
+}
+
+@media (min-width: 768px) {
+  .jumbotron-carousel {
+    margin-top: 80px;
+  }
+}
