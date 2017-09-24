@@ -60,6 +60,7 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     'jingpai.home',
     'jingpai.template_prerender',
+    'jingpai.utils',
 ]
 
 # A list of strings designating all applications that are enabled in this Django installation.
