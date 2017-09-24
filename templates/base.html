@@ -11,32 +11,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#" style="padding:0;">
-                <span><img src="/static/img/logo.png" alt="{% trans "Jingpai Logo" %}" height="100%"></span>
-                <span>{% trans "Jingpai UK" %}</span>
-            </a>
+<header>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#" style="padding:0;">
+                    <span><img src="/static/img/logo.png" alt="{% trans "Jingpai Logo" %}" height="100%"></span>
+                    <span>{% trans "Jingpai UK" %}</span>
+                </a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#product">{% trans "Product" %}</a></li>
+                    <li><a href="#brand">{% trans "Brand" %}</a></li>
+                    <li><a href="#event">{% trans "Event" %}</a></li>
+                    {#                <li><a href="#">{% trans "Shop" %}</a></li>#}
+                    <li><a href="#">{% trans "Join Us" %}</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#product">{% trans "Product" %}</a></li>
-                <li><a href="#brand">{% trans "Brand" %}</a></li>
-                <li><a href="#event">{% trans "Event" %}</a></li>
-{#                <li><a href="#">{% trans "Shop" %}</a></li>#}
-                <li><a href="#">{% trans "Join Us" %}</a></li>
-            </ul>
-        </div><!--/.nav-collapse -->
-    </div>
-</nav>
+    </nav>
+</header>
 {% block content %}
 {% endblock content %}
 <footer class="footer bg-dark text-white mt-5">
