@@ -18,5 +18,6 @@ class HomePageTR(TranslationOptions):
 @register(AboutPage)
 class AboutPageTR(TranslationOptions):
     fields = (
+        'seo_title',
         'body',
     )
