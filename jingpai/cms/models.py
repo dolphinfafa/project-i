@@ -30,11 +30,8 @@ class HomePage(Page):
     ]
 
 
-class AboutPage(Page):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.url_path = "/about/"
-
+# 用于大范围自定义的页面
+class CustomPage(Page):
     body = RichTextField(blank=True)
 
     content_panels = Page.content_panels + [

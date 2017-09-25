@@ -1,7 +1,7 @@
 from modeltranslation.decorators import register
 from wagtail_modeltranslation.translator import TranslationOptions
 
-from .models import HomePage, AboutPage
+from .models import HomePage, CustomPage
 
 
 @register(HomePage)
@@ -15,8 +15,8 @@ class HomePageTR(TranslationOptions):
     )
 
 
-@register(AboutPage)
-class AboutPageTR(TranslationOptions):
+@register(CustomPage)
+class CustomPageTR(TranslationOptions):
     fields = (
         'seo_title',
         'body',
