@@ -41,6 +41,7 @@
         </div>
     </div>
     <div class="container px-0">
+        <hr class="featurette-divider">
         <div class="row row-content mt-5">
             <div class="col-xs-12 col-sm-5">
                 <div id="carousel-product" class="carousel slide" data-ride="carousel">
@@ -84,11 +85,12 @@
                 </div>
             </div>
             <div class="col-xs-12 col-sm-7 pl-5">
-                <h2>{% trans "Jing Liqueur" %}</h2>
-                {{ page.liqueur_intro|richtext }}
+                <h2 class="featurette-heading">{% trans "Jing Liqueur" %}</h2>
+                <span class="lead">{{ page.liqueur_intro|richtext }}</span>
                 <p><a class="btn btn-default" href="#">{% trans "More" %} &raquo;</a></p>
             </div>
         </div>
+        <hr class="featurette-divider">
         <div class="row row-content mt-5">
             <div class="col-xs-12 col-sm-5 col-sm-push-7">
                 <div id="carousel-brand" class="carousel slide" data-ride="carousel">
@@ -120,9 +122,10 @@
                 </div>
             </div>
             <div class="col-xs-12 col-sm-7 col-sm-pull-5 pl-5">
-                <h2>{% trans "Jing Brand" %}</h2>
-                {{ page.brand_intro|richtext }}
+                <h2 class="featurette-heading">{% trans "Jing Brand" %}</h2>
+                <span class="lead">{{ page.brand_intro|richtext }}</span>
             </div>
         </div>
+        <hr class="featurette-divider">
     </div>
 {% endblock content %}

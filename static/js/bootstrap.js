@@ -1,6 +1,7 @@
 require('bootstrap/dist/css/bootstrap.css')
 require('../css/bootstrap4/utilities.css')
 require('../css/jumbotron-carousel.css')
+require('../css/featurettes.css')
 require('font-awesome/css/font-awesome.css')
 global.jQuery = require('jquery')
 var bootstrap = require('bootstrap')
