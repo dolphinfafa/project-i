@@ -59,7 +59,7 @@ const TEMPLATES = {
   ],
   // Chunk to template paths mapping
   mapping: {
-    'home': ['home/home_page.html'],
+    'home': ['cms/home_page.html'],
     'oscar/layout': [
       '403.html',
       '404.html',
