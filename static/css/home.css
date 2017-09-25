@@ -1,7 +1,4 @@
 @import "card.css";
 @import "featurettes.css";
 @import "jumbotron-carousel.css";
-
-.social-icon {
-  font-size: 25px;
-}
+@import "global.css";
