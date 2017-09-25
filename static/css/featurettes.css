@@ -18,7 +18,8 @@
 @media (min-width: 768px) {
 
   .featurette-heading {
-    font-size: 40px;
+    font-size: 35px;
+    margin-top: 5px;
   }
 
   .featurette-divider {
