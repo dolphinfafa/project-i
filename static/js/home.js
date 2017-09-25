@@ -1,5 +1,3 @@
-require('../css/jumbotron-carousel.css')
-require('../css/featurettes.css')
-require('../css/card.css')
+require('../css/home.css')
 
 require('./bootstrap.js')

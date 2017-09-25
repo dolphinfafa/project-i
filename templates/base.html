@@ -41,53 +41,61 @@
 </header>
 {% block content %}
 {% endblock content %}
-<footer class="footer bg-dark text-white mt-5">
+<footer class="footer bg-dark text-white mt-5 pt-3">
     <div class="container">
-        <div class="row pt-4">
-            <div class="col-sm-12 col-md-4">
-                <h5>{% trans "ABOUT US" %}</h5>
-                <p>{% trans "Oriental Drinks Ltd is the official agency of JING Brand in United Kingdom." %}</p>
-            </div>
-            <div class="col-sm-12 col-md-4">
-                <h5>{% trans "USEFUL LINKS" %}</h5>
-                <ul class="list-unstyled">
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="http://www.jingpai.com">www.jingpai.com</a></li>
-                </ul>
-            </div>
-            <div class="col-sm-12 col-md" id="contactus">
-                <h5>{% trans "OUR CONTACTS" %}</h5>
-                <address>
-                    <i class="fa fa-map-marker" aria-hidden="true"></i> 38 Portland Road, London, UK, SE25 4PF.<br>
-                    <i class="fa fa-phone" aria-hidden="true"></i> Tony: (+44) 07738407055<br>
-                    <i class="fa fa-envelope" aria-hidden="true"></i> <a href="mailto:info@orientaldrinks.com">info@orientaldrinks.com</a>
-                </address>
+        <div class="row text-center d-block d-sm-none">
+            <div class="col-12">
+                <select class="w-100 text-dark" onChange="window.location.href=this.value">
+                    <option value="{{ request.path }}?locale=en"{% if LANGUAGE_CODE == "en" %} selected{% endif %}>
+                        English
+                    </option>
+                    <option value="{{ request.path }}?locale=zh-hans"{% if LANGUAGE_CODE == "zh-hans" %}
+                            selected{% endif %}>
+                        简体中文
+                    </option>
+                    <option value="{{ request.path }}?locale=zh-hant"{% if LANGUAGE_CODE == "zh-hant" %}
+                            selected{% endif %}>
+                        繁體中文
+                    </option>
+                </select>
             </div>
         </div>
-        <div class="row">
-            <div class="col-sm-12 col-md order-md-3 pb-3 d-flex flex-column-reverse">
-                <span>
-                    <a href="#" class="ml-2"><i class="fa fa-facebook"></i></a>
-                    <a href="#" class="ml-2"><i class="fa fa-twitter"></i></a>
-                    <a href="#" class="ml-2"><i class="fa fa-linkedin"></i></a>
-                    <a href="#" class="ml-2"><i class="fa fa-pinterest"></i></a>
-                </span>
-            </div>
-            <div class="col-sm-12 col-md order-md-1 pb-3">
-                <div class="dropdown dropup d-flex justify-content-end">
-                    <button class="btn btn-secondary dropdown-toggle mr-auto" type="button" id="languageMenuButton"
-                            data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false">{{ lang.name_local }}</button>
-                    <div class="dropdown-menu" aria-labelledby="languageMenuButton">
-                        <a class="dropdown-item" href="{{ request.path }}?locale=en" rel="nofollow">English</a>
-                        <a class="dropdown-item" href="{{ request.path }}?locale=zh-hans" rel="nofollow">简体中文</a>
-                        <a class="dropdown-item" href="{{ request.path }}?locale=zh-hant" rel="nofollow">繁體中文</a>
-                    </div>
+        <div class="row mt-4">
+            <div class="col-sm-2 d-none d-sm-block">
+                <div class="dropdown dropup">
+                    <button id="languageMenuButton" class="btn btn-default" type="button" data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false">
+                        {{ lang.name_local }} <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="languageMenuButton">
+                        <li><a href="{{ request.path }}?locale=en" rel="nofollow">English</a></li>
+                        <li><a href="{{ request.path }}?locale=zh-hans" rel="nofollow">简体中文</a></li>
+                        <li><a href="{{ request.path }}?locale=zh-hant" rel="nofollow">繁體中文</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="col-sm-12 col-md order-md-2 d-flex flex-column-reverse">
-                <p>2017 © All Rights Reserved</p>
+            <div class="col-sm-7">
+                <span>
+                    <ul class="nav nav-pills nav-justified">
+                        <li><a href="#">{% trans "About Us" %}</a></li>
+                        <li><a href="#">{% trans "Contact Us" %}</a></li>
+                        <li><a href="#">{% trans "Privacy Policy" %}</a></li>
+                        <li><a href="#">{% trans "Terms of Service" %}</a></li>
+                    </ul>
+                </span>
             </div>
+            <div class="col-sm-3 text-center text-md-right">
+                <span class="social-icon">
+                    <a href="#" class="ml-3"><i class="fa fa-facebook"></i></a>
+                    <a href="#" class="ml-3"><i class="fa fa-twitter"></i></a>
+                    <a href="#" class="ml-3"><i class="fa fa-linkedin"></i></a>
+                    <a href="#" class="ml-3"><i class="fa fa-pinterest"></i></a>
+                </span>
+            </div>
+        </div>
+        <div class="row text-center mt-5">
+            <p>2017 © All Rights Reserved</p>
         </div>
     </div>
 </footer>
