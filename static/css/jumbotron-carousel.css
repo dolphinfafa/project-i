@@ -19,9 +19,3 @@
 .jumbotron-carousel {
   margin-top: 50px;
 }
-
-@media (min-width: 768px) {
-  .jumbotron-carousel {
-    margin-top: 80px;
-  }
-}
