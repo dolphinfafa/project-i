@@ -2,7 +2,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: {
-    bootstrap: ['./static/js/bootstrap.js'],
+    home: ['./static/js/home.js'],
     instantclick: ['./static/js/instantclick.js'],
   },
   output: {
@@ -34,7 +34,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: 'jingpai/templates/home/home_page.html',
-      chunks: ['bootstrap'],
+      chunks: ['home'],
       inject: 'body',
       filename: 'home/home_page.html',
     }),
