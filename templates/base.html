@@ -33,12 +33,38 @@
                     <li><a href="#brand">{% trans "Brand" %}</a></li>
                     <li><a href="#event">{% trans "Event" %}</a></li>
                     {#                <li><a href="#">{% trans "Shop" %}</a></li>#}
-                    <li><a href="#">{% trans "Join Us" %}</a></li>
+                    <a type="button" class="btn btn-default" data-toggle="modal"
+                       data-target="#joinMessageModal"
+                       style="margin-top: 7px;margin-left: 7px;">{% trans "Join Us" %}</a>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
     </nav>
 </header>
+<div class="modal fade" id="joinMessageModal" tabindex="-1" role="dialog" aria-labelledby="joinMessageModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="joinMessageModalLabel">{% trans "Join Us" %}</h4>
+            </div>
+            <div class="modal-body">
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="message-text" class="control-label">{% trans "Message" %}{% trans ":" %}</label>
+                        <textarea class="form-control" name="message" id="join-message-text"></textarea>
+                        {% csrf_token %}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">{% trans "Close" %}</button>
+                        <button type="submit" class="btn btn-primary">{% trans "Send" %}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 {% block content %}
 {% endblock content %}
 <footer class="footer bg-dark text-white mt-5 pt-3">
