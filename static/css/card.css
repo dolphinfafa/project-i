@@ -1,0 +1,15 @@
+/* MARKETING CONTENT
+-------------------------------------------------- */
+
+/* Center align the text within the three columns below the carousel */
+.card {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.card h2 {
+  font-weight: normal;
+}
+.card p {
+  margin-right: 10px;
+  margin-left: 10px;
+}
