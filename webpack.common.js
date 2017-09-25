@@ -3,6 +3,7 @@ var CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   entry: {
+    bootstrap: ['./static/js/bootstrap.js'],
     home: ['./static/js/home.js'],
     instantclick: ['./static/js/instantclick.js'],
     'oscar/layout': ['./static/oscar/js/layout.js'],
@@ -60,6 +61,7 @@ const TEMPLATES = {
   // Chunk to template paths mapping
   mapping: {
     'home': ['cms/home_page.html'],
+    'bootstrap': ['cms/about_page.html'],
     'oscar/layout': [
       '403.html',
       '404.html',

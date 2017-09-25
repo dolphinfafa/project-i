@@ -1,7 +1,7 @@
 from modeltranslation.decorators import register
 from wagtail_modeltranslation.translator import TranslationOptions
 
-from .models import HomePage
+from .models import HomePage, AboutPage
 
 
 @register(HomePage)
@@ -12,4 +12,11 @@ class HomePageTR(TranslationOptions):
         'liqueur_intro',
         'brand_intro',
         'jumbotrons',
+    )
+
+
+@register(AboutPage)
+class AboutPageTR(TranslationOptions):
+    fields = (
+        'body',
     )
