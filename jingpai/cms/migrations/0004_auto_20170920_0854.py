@@ -9,7 +9,7 @@ import wagtail.wagtailcore.fields
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('home', '0003_auto_20170920_0806'),
+        ('cms', '0003_auto_20170920_0806'),
     ]
 
     operations = [

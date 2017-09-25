@@ -10,7 +10,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('wagtailimages', '0019_delete_filter'),
-        ('home', '0002_auto_20170918_1608'),
+        ('cms', '0002_auto_20170918_1608'),
     ]
 
     operations = [
