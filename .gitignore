@@ -275,3 +275,6 @@ venv.bak/
 
 # Ignore prerendered templates
 jingpai/templates
+
+# Temporary dir
+tmp
