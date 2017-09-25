@@ -13,3 +13,15 @@ wagtail==1.12.2
 # Simple app containing a mixin model that integrates modeltranslation into wagtail panels system.
 # https://wagtail-modeltranslation.readthedocs.io/en/latest/
 git+https://github.com/infoportugal/wagtail-modeltranslation@v0.6.0rc2
+
+# Domain-driven e-commerce for Django
+# https://django-oscar.readthedocs.io/en/releases-1.5/
+django-oscar==1.5
+
+# Compresses linked and inline JavaScript or CSS into a single cached file.
+# https://django-compressor.readthedocs.io/en/latest/
+django-compressor==2.2
+
+# ISO country, subdivision, language, currency and script definitions and their translations
+# https://pypi.python.org/pypi/pycountry
+pycountry==17.5.14

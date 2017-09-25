@@ -30,7 +30,7 @@ var pathsToClean = [
 // the clean options to use
 var cleanOptions = {
   root: __dirname,
-  exclude: [],
+  exclude: ['html5shiv.min.js'],
   verbose: true,
   dry: false,
 }
