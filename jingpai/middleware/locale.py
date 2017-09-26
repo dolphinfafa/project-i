@@ -4,7 +4,7 @@ This is the locale selecting middleware that will look at accept headers with re
 
 from django.conf import settings
 from django.conf.urls.i18n import is_language_prefix_patterns_used
-from django.http import HttpResponseRedirect, HttpResponsePermanentRedirect, HttpResponse
+from django.http import HttpResponse
 from django.urls import get_script_prefix, is_valid_path
 from django.urls import translate_url
 from django.utils import translation
@@ -12,6 +12,8 @@ from django.utils.cache import patch_vary_headers
 from django.utils.deprecation import MiddlewareMixin
 from django.utils.translation import (
     LANGUAGE_SESSION_KEY, check_for_language, )
+
+from jingpai.http import HttpResponseRedirect, HttpResponsePermanentRedirect
 
 
 class LocaleMiddleware(MiddlewareMixin):
