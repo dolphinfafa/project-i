@@ -1,7 +1,7 @@
 from django.views.generic import TemplateView
 
-from .models import HomePage
 from jingpai.blog.models import BlogPostPage
+from .models import HomePage
 
 
 class HomeView(TemplateView):
