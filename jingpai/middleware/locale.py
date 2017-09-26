@@ -13,7 +13,7 @@ from django.utils.deprecation import MiddlewareMixin
 from django.utils.translation import (
     LANGUAGE_SESSION_KEY, check_for_language, )
 
-from jingpai.http import HttpResponseRedirect, HttpResponsePermanentRedirect
+from jingpai.http import HttpResponseRedirect
 
 
 class LocaleMiddleware(MiddlewareMixin):
@@ -81,7 +81,8 @@ class LocaleSetterMiddleware(MiddlewareMixin):
 
     Inspired by django.views.i18n.set_language()
     """
-    response_redirect_class = HttpResponsePermanentRedirect
+    # 设置语言的操作是幂等非安全的
+    response_redirect_class = HttpResponseRedirect
 
     def process_request(self, request):
         lang_code = request.GET.get('locale')
