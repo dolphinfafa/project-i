@@ -87,7 +87,7 @@
             <div class="col-xs-12 col-sm-7 pl-5">
                 <h2 class="featurette-heading">{% trans "Jing Liqueur" %}</h2>
                 <span class="lead">{{ page.liqueur_intro|richtext }}</span>
-                <p><a class="btn btn-default" href="/about/">{% trans "More" %} &raquo;</a></p>
+                <p><a class="btn btn-default" href="{% url 'about' %}">{% trans "More" %} &raquo;</a></p>
             </div>
         </div>
         <hr id="brand" class="featurette-divider">
