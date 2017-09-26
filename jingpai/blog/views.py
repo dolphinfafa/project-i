@@ -8,7 +8,7 @@ class BlogIndexView(TemplateView):
     template_name = "blog/blog_index_page.html"
 
     def get(self, request, *args, **kwargs):
-        page = request.GET.get('p')
+        page = request.GET.get('page')
         post_list = BlogPostPage.objects.live().order_by('-first_published_at').all()
         paginator = Paginator(post_list, 5)  # Show 5 posts per page
         try:
