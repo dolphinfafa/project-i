@@ -15,10 +15,6 @@ class JumbotronBlock(blocks.StreamBlock):
 
 
 class HomePage(Page):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.url_path = "/"
-
     liqueur_intro = RichTextField(null=True, help_text=_("Introduction for Jing liqueur"))
     brand_intro = RichTextField(null=True, help_text=_("Introduction for Jing Brand"))
     jumbotrons = StreamField(JumbotronBlock(), null=True, help_text=_("Home jumbotron"))
