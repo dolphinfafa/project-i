@@ -133,18 +133,23 @@
             {% for post in posts %}
                 <div class="col-lg-4 card">
                     {% if post.gallery_images.all.0.image %}
-                        {% image post.gallery_images.all.0.image fill-140x140 class="img-circle" %}
+                        <a href="{% pageurl post %}">{% image post.gallery_images.all.0.image fill-140x140 class="img-circle" %}</a>
                     {% else %}
-                        <img class="img-circle"
-                             src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-                             alt="Generic placeholder image" width="140" height="140">
+                        <a href="{% pageurl post %}">
+                            <img class="img-circle"
+                                 src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+                                 alt="Generic placeholder image" width="140" height="140">
+                        </a>
                     {% endif %}
-
-                    <h3>{{ post.title }}</h3>
+                    <h3><a href="{% pageurl post %}">{{ post.title }}</a></h3>
                     <p>{{ post.intro }}</p>
-                    <p><a class="btn btn-default" href="{% pageurl post %}" role="button">{% trans "View details" %} »</a></p>
                 </div><!-- /.col-lg-4 -->
             {% endfor %}
+        </div>
+        <div class="row">
+            <div class="pull-right pr-5">
+                <a class="btn btn-default btn-lg" href="/blog/" role="button">{% trans "Find more events" %} »</a>
+            </div>
         </div>
     </div>
 {% endblock content %}
