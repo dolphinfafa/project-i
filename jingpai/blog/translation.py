@@ -8,6 +8,8 @@ from .models import BlogIndexPage, BlogPostPage, PostGalleryImage
 class BlogIndexPageTR(WagtailTranslationOptions):
     fields = (
         'intro',
+        'board_title',
+        'board_text',
     )
 
 
