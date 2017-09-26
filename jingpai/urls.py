@@ -23,6 +23,7 @@ from wagtail.wagtailadmin import urls as wagtailadmin_urls
 from wagtail.wagtailcore import urls as wagtail_urls
 from wagtail.wagtaildocs import urls as wagtaildocs_urls
 
+from jingpai.blog.views import BlogIndexView
 from jingpai.cms.views import HomeView
 from jingpai.utils.views import dummy_view
 
@@ -36,6 +37,7 @@ urlpatterns += i18n_patterns(
     url(r'^i18n/', include('django.conf.urls.i18n')),
     url(r'^shop/', include(application.urls)),
     url(r'^$', HomeView.as_view(), name="home"),
+    url(r'^blog$', BlogIndexView.as_view(), name="blog"),
     url(r'', include(wagtail_urls)),  # should be placed at the bottom
 
     # 仅仅是用于建立url name查询关联

@@ -15,13 +15,6 @@ class BlogIndexPage(Page):
         FieldPanel('intro', classname="full")
     ]
 
-    def get_context(self, request, *args, **kwargs):
-        # Update context to include only published posts, ordered by reverse-chron
-        context = super().get_context(request, *args, **kwargs)
-        posts = self.get_children().live().order_by('-first_published_at')
-        context['posts'] = posts
-        return context
-
 
 class BlogPostPage(Page):
     date = models.DateField(null=True, blank=True, help_text=_("Post date"))
