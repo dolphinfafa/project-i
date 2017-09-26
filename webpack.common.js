@@ -63,6 +63,8 @@ const TEMPLATES = {
     'home': ['cms/home_page.html'],
     'bootstrap': [
       'cms/custom_page.html',
+      'blog/blog_index_page.html',
+      'blog/blog_post_page.html',
     ],
     'oscar/layout': [
       '403.html',
