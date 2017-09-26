@@ -37,7 +37,7 @@ urlpatterns += i18n_patterns(
     url(r'^i18n/', include('django.conf.urls.i18n')),
     url(r'^shop/', include(application.urls)),
     url(r'^$', HomeView.as_view(), name="home"),
-    url(r'^blog$', BlogIndexView.as_view(), name="blog"),
+    url(r'^blog/$', BlogIndexView.as_view(), name="blog"),
     url(r'', include(wagtail_urls)),  # should be placed at the bottom
 
     # 仅仅是用于建立url name查询关联
