@@ -89,7 +89,7 @@ class LocaleSetterMiddleware(MiddlewareMixin):
         if not lang_code:
             return
         params = request.GET.copy()
-        del (params['locale'])
+        del params['locale']
         next_path = request.path
         if params:
             next_path = f'{request.path}?{params.urlencode()}'
