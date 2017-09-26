@@ -85,7 +85,12 @@ class LocaleSetterMiddleware(MiddlewareMixin):
         lang_code = request.GET.get('locale')
         if not lang_code:
             return
+        params = request.GET.copy()
+        del (params['locale'])
         next_path = request.path
+        if params:
+            next_path = f'{request.path}?{params.urlencode()}'
+
         response = self.response_redirect_class(next_path) if next_path else HttpResponse(status=204)
         if check_for_language(lang_code):
             if next_path:

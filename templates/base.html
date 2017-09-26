@@ -74,14 +74,15 @@
         <div class="row text-center d-block d-sm-none">
             <div class="col-12">
                 <select class="w-100 text-dark" onChange="window.location.href=this.value">
-                    <option value="{{ request.path }}?locale=en"{% if LANGUAGE_CODE == "en" %} selected{% endif %}>
+                    <option value="{{ request|get_locale_setter_url:'en' }}"{% if LANGUAGE_CODE == "en" %}
+                            selected{% endif %}>
                         English
                     </option>
-                    <option value="{{ request.path }}?locale=zh-hans"{% if LANGUAGE_CODE == "zh-hans" %}
+                    <option value="{{ request|get_locale_setter_url:'zh-hans' }}"{% if LANGUAGE_CODE == "zh-hans" %}
                             selected{% endif %}>
                         简体中文
                     </option>
-                    <option value="{{ request.path }}?locale=zh-hant"{% if LANGUAGE_CODE == "zh-hant" %}
+                    <option value="{{ request|get_locale_setter_url:'zh-hant' }}"{% if LANGUAGE_CODE == "zh-hant" %}
                             selected{% endif %}>
                         繁體中文
                     </option>
@@ -97,9 +98,9 @@
                         {{ lang.name_local }} <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="languageMenuButton">
-                        <li><a href="{{ request.path }}?locale=en" rel="nofollow">English</a></li>
-                        <li><a href="{{ request.path }}?locale=zh-hans" rel="nofollow">简体中文</a></li>
-                        <li><a href="{{ request.path }}?locale=zh-hant" rel="nofollow">繁體中文</a></li>
+                        <li><a href="{{ request|get_locale_setter_url:'en' }}" rel="nofollow">English</a></li>
+                        <li><a href="{{ request|get_locale_setter_url:'zh-hans' }}" rel="nofollow">简体中文</a></li>
+                        <li><a href="{{ request|get_locale_setter_url:'zh-hant' }}" rel="nofollow">繁體中文</a></li>
                     </ul>
                 </div>
             </div>
