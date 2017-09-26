@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-22 16:50+0000\n"
+"POT-Creation-Date: 2017-09-26 16:00+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,33 +18,49 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: config/settings/base.py:169
+#: config/settings/base.py:171
 msgid "English"
 msgstr ""
 
-#: config/settings/base.py:170
+#: config/settings/base.py:172
 msgid "简体中文"
 msgstr ""
 
-#: config/settings/base.py:171
+#: config/settings/base.py:173
 msgid "繁體中文"
 msgstr ""
 
-#: config/settings/base.py:220
+#: config/settings/base.py:222 templates/base.html:28
 msgid "Jingpai UK"
 msgstr "劲酒英伦"
 
-#: jingpai/home/models.py:10
+#: jingpai/blog/models.py:23
+msgid "Post date"
+msgstr ""
+
+#: jingpai/cms/models.py:11
+msgid "Background image for home jumbotron"
+msgstr "首页Jumbotron的背景图"
+
+#: jingpai/cms/models.py:12
+msgid "Home jumbotron title"
+msgstr ""
+
+#: jingpai/cms/models.py:13
+msgid "Home jumbotron body"
+msgstr ""
+
+#: jingpai/cms/models.py:18
 msgid "Introduction for Jing liqueur"
 msgstr "劲酒简介"
 
-#: jingpai/home/models.py:11
+#: jingpai/cms/models.py:19
 msgid "Introduction for Jing Brand"
 msgstr "劲牌简介"
 
-#: jingpai/home/models.py:18
-msgid "Background image for home jumbotron"
-msgstr "首页Jumbotron的背景图"
+#: jingpai/cms/models.py:20
+msgid "Home jumbotron"
+msgstr ""
 
 #: templates/403.html:5 templates/403.html:9
 msgid "Permission denied!"
@@ -82,46 +98,68 @@ msgid ""
 "as possible."
 msgstr ""
 
-#: templates/base.html:16
+#: templates/base.html:27
 msgid "Jingpai Logo"
 msgstr "劲酒"
 
-#: templates/base.html:24
-msgid "INTRO"
-msgstr "简介"
+#: templates/base.html:33 templates/customer/alerts/alert_list.html:12
+#: templates/customer/anon_order.html:58
+#: templates/customer/order/order_detail.html:17
+#: templates/customer/wishlists/wishlists_detail.html:31
+#: templates/dashboard/catalogue/stockalert_list.html:48
+#: templates/dashboard/orders/order_detail.html:109
+#: templates/dashboard/reports/partials/product_report.html:8
+#: templates/dashboard/reviews/review_delete.html:37
+#: templates/dashboard/reviews/review_list.html:57
+#: templates/dashboard/users/alerts/list.html:44
+#: templates/dashboard/users/alerts/partials/alert.html:6
+msgid "Product"
+msgstr ""
 
-#: templates/base.html:27
-msgid "PRODUCT"
-msgstr "产品"
+#: templates/base.html:34
+msgid "Brand"
+msgstr ""
 
-#: templates/base.html:30
-msgid "BRAND"
-msgstr "品牌"
+#: templates/base.html:35 templates/dashboard/orders/line_detail.html:135
+#: templates/dashboard/orders/line_detail.html:166
+#: templates/dashboard/orders/order_detail.html:343
+#: templates/dashboard/orders/order_detail.html:389
+msgid "Event"
+msgstr ""
 
-#: templates/base.html:33
-msgid "EVENTS"
-msgstr "活动"
+#: templates/base.html:39 templates/base.html:51
+msgid "Join Us"
+msgstr ""
 
-#: templates/base.html:36
-msgid "CONTACT US"
-msgstr "联系我们"
+#: templates/base.html:56 templates/customer/notifications/detail.html:33
+#: templates/dashboard/orders/order_detail.html:565
+#: templates/dashboard/orders/order_detail.html:612
+msgid "Message"
+msgstr ""
 
-#: templates/base.html:48
-msgid "ABOUT US"
-msgstr "关于"
+#: templates/base.html:56
+msgid ":"
+msgstr ""
 
-#: templates/base.html:49
-msgid ""
-"Oriental Drinks Ltd is the official agency of JING Brand in United Kingdom."
-msgstr "Oriental Drinks Ltd 是劲牌的官方英国代理机构。"
+#: templates/base.html:61 templates/dashboard/orders/order_list.html:72
+msgid "Close"
+msgstr ""
 
-#: templates/base.html:52
-msgid "USEFUL LINKS"
-msgstr "链接"
+#: templates/base.html:62
+msgid "Send"
+msgstr ""
 
-#: templates/base.html:59
-msgid "OUR CONTACTS"
-msgstr "联系方式"
+#: templates/base.html:111
+msgid "About Us"
+msgstr ""
+
+#: templates/base.html:112
+msgid "Privacy Policy"
+msgstr ""
+
+#: templates/base.html:113
+msgid "Terms of Service"
+msgstr ""
 
 #: templates/basket/basket.html:6 templates/basket/basket.html:14
 #: templates/basket/basket.html:22
@@ -554,6 +592,22 @@ msgstr ""
 
 #: templates/basket/partials/basket_totals.html:218
 msgid "Taxes will be added during checkout."
+msgstr ""
+
+#: templates/blog/blog_index_page.html:32
+msgid "Previous"
+msgstr ""
+
+#: templates/blog/blog_index_page.html:37
+msgid "Next"
+msgstr ""
+
+#: templates/blog/blog_index_page.html:53 templates/blog/blog_post_page.html:45
+msgid "Elsewhere"
+msgstr ""
+
+#: templates/blog/blog_post_page.html:29
+msgid "Return"
 msgstr ""
 
 #: templates/catalogue/browse.html:27
@@ -1256,6 +1310,26 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
+#: templates/cms/home_page.html:87
+msgid "Jing Liqueur"
+msgstr "劲酒"
+
+#: templates/cms/home_page.html:89
+msgid "More"
+msgstr ""
+
+#: templates/cms/home_page.html:124
+msgid "Jing Brand"
+msgstr ""
+
+#: templates/cms/home_page.html:130
+msgid "Our Events"
+msgstr ""
+
+#: templates/cms/home_page.html:151
+msgid "Find more events"
+msgstr ""
+
 #: templates/customer/address/address_delete.html:8
 #: templates/customer/address/address_form.html:8
 msgid "Address book"
@@ -1338,20 +1412,6 @@ msgstr ""
 
 #: templates/customer/alerts/alert_list.html:6
 msgid "You do not have any active alerts for out-of-stock products."
-msgstr ""
-
-#: templates/customer/alerts/alert_list.html:12
-#: templates/customer/anon_order.html:58
-#: templates/customer/order/order_detail.html:17
-#: templates/customer/wishlists/wishlists_detail.html:31
-#: templates/dashboard/catalogue/stockalert_list.html:48
-#: templates/dashboard/orders/order_detail.html:109
-#: templates/dashboard/reports/partials/product_report.html:8
-#: templates/dashboard/reviews/review_delete.html:37
-#: templates/dashboard/reviews/review_list.html:57
-#: templates/dashboard/users/alerts/list.html:44
-#: templates/dashboard/users/alerts/partials/alert.html:6
-msgid "Product"
 msgstr ""
 
 #: templates/customer/alerts/alert_list.html:13
@@ -1794,12 +1854,6 @@ msgstr ""
 
 #: templates/customer/notifications/detail.html:14
 msgid "Sender"
-msgstr ""
-
-#: templates/customer/notifications/detail.html:33
-#: templates/dashboard/orders/order_detail.html:565
-#: templates/dashboard/orders/order_detail.html:612
-msgid "Message"
 msgstr ""
 
 #: templates/customer/notifications/detail.html:38
@@ -3173,13 +3227,6 @@ msgstr ""
 msgid "Shipping events"
 msgstr ""
 
-#: templates/dashboard/orders/line_detail.html:135
-#: templates/dashboard/orders/line_detail.html:166
-#: templates/dashboard/orders/order_detail.html:343
-#: templates/dashboard/orders/order_detail.html:389
-msgid "Event"
-msgstr ""
-
 #: templates/dashboard/orders/line_detail.html:137
 #: templates/dashboard/orders/order_detail.html:345
 #: templates/dashboard/orders/order_detail.html:392
@@ -3460,10 +3507,6 @@ msgstr ""
 #: templates/dashboard/orders/order_list.html:52
 #: templates/dashboard/orders/order_list.html:61
 msgid "Advanced Search"
-msgstr ""
-
-#: templates/dashboard/orders/order_list.html:72
-msgid "Close"
 msgstr ""
 
 #: templates/dashboard/orders/order_list.html:101
@@ -4715,74 +4758,6 @@ msgstr ""
 msgid "Edit this page"
 msgstr ""
 
-#: templates/home/home_page.html:11
-msgid "WELCOME TO"
-msgstr "欢  迎  光  临"
-
-#: templates/home/home_page.html:14
-msgid "JING LIQUEUR"
-msgstr "中  国  劲  酒"
-
-#: templates/home/home_page.html:17
-msgid "MALE TONIC"
-msgstr "保  健"
-
-#: templates/home/home_page.html:61
-msgid "Jing Liqueur"
-msgstr "劲酒"
-
-#: templates/home/home_page.html:63 templates/home/home_page.html:71
-msgid "The ingredient"
-msgstr "成分"
-
-#: templates/home/home_page.html:77 templates/home/home_page.html:79
-msgid "Yam"
-msgstr "甘薯"
-
-#: templates/home/home_page.html:80
-msgid ""
-"Can help alleviate eating disorders, coughs and lung deficiencies. Also "
-"helps strengthen the spleen and stomach, invigoration the Qi."
-msgstr ""
-
-#: templates/home/home_page.html:84 templates/home/home_page.html:86
-msgid "Wolfberry"
-msgstr "枸杞"
-
-#: templates/home/home_page.html:87
-msgid ""
-"Natural aphrodisiac, improves sexual function. Also, beneficial for the "
-"blood, liver and eyes."
-msgstr ""
-
-#: templates/home/home_page.html:91 templates/home/home_page.html:93
-msgid "Cinnamon"
-msgstr "肉桂"
-
-#: templates/home/home_page.html:94
-msgid ""
-"Sooths stomach aches, kidney deficiencies and bloating. It enhances the "
-"Yang, dispels cold and relieves pain."
-msgstr ""
-
-#: templates/home/home_page.html:98 templates/home/home_page.html:100
-msgid "Cloves"
-msgstr "丁香"
-
-#: templates/home/home_page.html:101
-msgid "Relieves colds, chest and abdominal pains. Enhances the Yang."
-msgstr ""
-
-#: templates/home/home_page.html:108
-msgid ""
-"Other herbs: Angelica, Ginseng, Radix Puerariae, Poria cocos, Jujube, Maca "
-"powder"
-msgstr "其他草药：当归、人参、葛根、茯苓、红枣、玛卡粉"
-
-#: templates/home/home_page.html:118
-msgid "The JING Brand"
-msgstr "劲酒品牌"
-
 #: templates/login_forbidden.html:5
 msgid "This page is only available to users who aren't logged in."
 msgstr ""
@@ -4974,3 +4949,64 @@ msgid ""
 "%(suggestion)s\">\"%(suggestion)s\"</a>?\n"
 "                    "
 msgstr ""
+
+#~ msgid "INTRO"
+#~ msgstr "简介"
+
+#~ msgid "PRODUCT"
+#~ msgstr "产品"
+
+#~ msgid "BRAND"
+#~ msgstr "品牌"
+
+#~ msgid "EVENTS"
+#~ msgstr "活动"
+
+#~ msgid "CONTACT US"
+#~ msgstr "联系我们"
+
+#~ msgid "ABOUT US"
+#~ msgstr "关于"
+
+#~ msgid ""
+#~ "Oriental Drinks Ltd is the official agency of JING Brand in United "
+#~ "Kingdom."
+#~ msgstr "Oriental Drinks Ltd 是劲牌的官方英国代理机构。"
+
+#~ msgid "USEFUL LINKS"
+#~ msgstr "链接"
+
+#~ msgid "OUR CONTACTS"
+#~ msgstr "联系方式"
+
+#~ msgid "WELCOME TO"
+#~ msgstr "欢  迎  光  临"
+
+#~ msgid "JING LIQUEUR"
+#~ msgstr "中  国  劲  酒"
+
+#~ msgid "MALE TONIC"
+#~ msgstr "保  健"
+
+#~ msgid "The ingredient"
+#~ msgstr "成分"
+
+#~ msgid "Yam"
+#~ msgstr "甘薯"
+
+#~ msgid "Wolfberry"
+#~ msgstr "枸杞"
+
+#~ msgid "Cinnamon"
+#~ msgstr "肉桂"
+
+#~ msgid "Cloves"
+#~ msgstr "丁香"
+
+#~ msgid ""
+#~ "Other herbs: Angelica, Ginseng, Radix Puerariae, Poria cocos, Jujube, "
+#~ "Maca powder"
+#~ msgstr "其他草药：当归、人参、葛根、茯苓、红枣、玛卡粉"
+
+#~ msgid "The JING Brand"
+#~ msgstr "劲酒品牌"
