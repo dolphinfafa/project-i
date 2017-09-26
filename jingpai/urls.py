@@ -22,6 +22,8 @@ from oscar.app import application
 from wagtail.wagtailadmin import urls as wagtailadmin_urls
 from wagtail.wagtailcore import urls as wagtail_urls
 from wagtail.wagtaildocs import urls as wagtaildocs_urls
+
+from jingpai.cms.views import HomeView
 from jingpai.utils.views import dummy_view
 
 urlpatterns = [
@@ -33,10 +35,10 @@ urlpatterns += i18n_patterns(
     url(r'^documents/', include(wagtaildocs_urls)),
     url(r'^i18n/', include('django.conf.urls.i18n')),
     url(r'^shop/', include(application.urls)),
+    url(r'^$', HomeView.as_view(), name="home"),
     url(r'', include(wagtail_urls)),  # should be placed at the bottom
 
     # 仅仅是用于建立url name查询关联
-    url(r'^$', dummy_view, name="home"),
     url(r'^about/$', dummy_view, name="about"),
     url(r'^privacy-policy/$', dummy_view, name="privacy_policy"),
     url(r'^terms-of-service/$', dummy_view, name="terms_of_service"),
