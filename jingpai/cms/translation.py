@@ -1,14 +1,12 @@
 from modeltranslation.decorators import register
-from wagtail_modeltranslation.translator import TranslationOptions
+from wagtail_modeltranslation.translator import WagtailTranslationOptions
 
 from .models import HomePage, CustomPage
 
 
 @register(HomePage)
-class HomePageTR(TranslationOptions):
+class HomePageTR(WagtailTranslationOptions):
     fields = (
-        'title',
-        'seo_title',
         'liqueur_intro',
         'brand_intro',
         'jumbotrons',
@@ -16,8 +14,7 @@ class HomePageTR(TranslationOptions):
 
 
 @register(CustomPage)
-class CustomPageTR(TranslationOptions):
+class CustomPageTR(WagtailTranslationOptions):
     fields = (
-        'seo_title',
         'body',
     )

@@ -17,7 +17,6 @@ class JumbotronBlock(blocks.StreamBlock):
 class HomePage(Page):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        # 使用此初始化是避免引发切换root page后的寻根路径错误
         self.url_path = "/"
 
     liqueur_intro = RichTextField(null=True, help_text=_("Introduction for Jing liqueur"))
