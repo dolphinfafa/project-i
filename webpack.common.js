@@ -5,6 +5,7 @@ module.exports = {
   entry: {
     bootstrap: ['./static/js/bootstrap.js'],
     home: ['./static/js/home.js'],
+    blog: ['./static/js/blog.js'],
     instantclick: ['./static/js/instantclick.js'],
     'oscar/layout': ['./static/oscar/js/layout.js'],
     'oscar/dashboard/layout': ['./static/oscar/js/dashboard/layout.js'],
@@ -61,10 +62,12 @@ const TEMPLATES = {
   // Chunk to template paths mapping
   mapping: {
     'home': ['cms/home_page.html'],
-    'bootstrap': [
-      'cms/custom_page.html',
+    'blog': [
       'blog/blog_index_page.html',
       'blog/blog_post_page.html',
+    ],
+    'bootstrap': [
+      'cms/custom_page.html',
     ],
     'oscar/layout': [
       '403.html',
