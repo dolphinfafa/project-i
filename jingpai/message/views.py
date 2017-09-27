@@ -1,9 +1,12 @@
+import json
+
+import pyffx
+from django.conf import settings
 from django.core.exceptions import MultipleObjectsReturned
 from django.http import JsonResponse
 from django.utils.translation import get_language
 from django.views.generic import View
-from django.conf import settings
-import pyffx
+
 from .forms import MessageForm
 from .models import Message
 
@@ -12,8 +15,9 @@ ffx = pyffx.Integer(settings.PYFFX_KEY.encode(), length=5)
 
 class MessageView(View):
     @staticmethod
-    def post(request):
-        form = MessageForm(request.POST)
+    def put(request):
+        json_data = json.loads(request.body)
+        form = MessageForm(json_data)
         status_code = 201
         data = {'msg': 'ok'}
         if form.is_valid():
