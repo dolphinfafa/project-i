@@ -39,7 +39,6 @@ joinMessageModal.find('button[type=\'submit\']').click(function (e) {
     },
     error: function (jqXHR) {
       if (jqXHR.status == 400) {
-        console.log($.parseJSON(jqXHR.responseText))
         alert($.parseJSON(jqXHR.responseText)['error'])
       } else {
         alert(
