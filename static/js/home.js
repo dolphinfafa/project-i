@@ -1,3 +1,3 @@
-require('../css/home.css')
+require('./layout.js')
 
-require('./bootstrap.js')
+require('../css/home.css')

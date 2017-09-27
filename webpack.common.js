@@ -3,7 +3,7 @@ var CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   entry: {
-    bootstrap: ['./static/js/bootstrap.js'],
+    layout: ['./static/js/layout.js'],
     home: ['./static/js/home.js'],
     blog: ['./static/js/blog.js'],
     instantclick: ['./static/js/instantclick.js'],
@@ -66,7 +66,7 @@ const TEMPLATES = {
       'blog/blog_index_page.html',
       'blog/blog_post_page.html',
     ],
-    'bootstrap': [
+    'layout': [
       'cms/custom_page.html',
     ],
     'oscar/layout': [

@@ -1,3 +1,3 @@
-require('./bootstrap.js')
+require('./layout.js')
 
 require('../css/blog.css')
