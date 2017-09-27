@@ -135,6 +135,17 @@
   border-radius: 30px;
 }
 
+.pager > li > a.disabled {
+  pointer-events: none;
+  color: #ccc;
+}
+
+.pager > li > a.disabled:hover,
+.pager > li > a.disabled:focus {
+  background-color: #fff;
+  border-color: #ccc;
+}
+
 /*
  * Blog posts
  */

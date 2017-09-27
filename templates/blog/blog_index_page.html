@@ -27,16 +27,20 @@
                     {% endfor %}
                     <nav>
                         <ul class="pager">
-                            {% if posts.has_previous %}
-                                <li>
+                            <li>
+                                {% if posts.has_previous %}
                                     <a href="{% if posts.previous_page_number == 1 %}{% pageurl page %}{% else %}{% pageurl page %}?page={{ posts.previous_page_number }}{% endif %}">{% trans "Previous" %}</a>
-                                </li>
-                            {% endif %}
-                            {% if posts.has_next %}
-                                <li>
+                                {% else %}
+                                    <a class="disabled" href="#">{% trans "Previous" %}</a>
+                                {% endif %}
+                            </li>
+                            <li>
+                                {% if posts.has_next %}
                                     <a href="{% pageurl page %}?page={{ posts.next_page_number }}">{% trans "Next" %}</a>
-                                </li>
-                            {% endif %}
+                                {% else %}
+                                    <a class="disabled" href="#">{% trans "Next" %}</a>
+                                {% endif %}
+                            </li>
                         </ul>
                     </nav>
 
