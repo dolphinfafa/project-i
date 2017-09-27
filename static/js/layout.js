@@ -23,7 +23,7 @@ joinMessageModal.find('button[type=\'submit\']').click(function (e) {
         console.log($.parseJSON(jqXHR.responseText))
         alert($.parseJSON(jqXHR.responseText)['error'])
       } else {
-        alert('Server error, please try again.')
+        alert('Oops, it seems that something went wrong, please try again later.')
       }
     },
     dataType: 'json',
