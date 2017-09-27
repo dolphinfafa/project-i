@@ -51,24 +51,29 @@
                 <h4 class="modal-title" id="joinMessageModalLabel">{% trans "Join Us" %}</h4>
             </div>
             <div class="modal-body">
-                <form action="{% url 'message' %}" method="POST">
+                <form action="{% url 'message' %}" method="PUT" role="form" data-toggle="validator">
                     <div class="form-group">
                         <label for="sender-name" class="control-label">{% trans "Name" %}</label>
                         <input name="name" type="text" class="form-control" id="sender-name">
                     </div>
                     <div class="form-group">
                         <label for="sender-email" class="control-label">{% trans "Email" %}</label>
-                        <input name="email" type="text" class="form-control" id="sender-email">
+                        <input name="email" type="email" class="form-control" id="sender-email"
+                               data-error="{% trans 'The email address is invalid.' %}"
+                               data-required-error="{% trans 'Please enter an email address.' %}" required>
+                        <div class="help-block with-errors"></div>
                     </div>
                     <div class="form-group">
-                        <label for="message-text" class="control-label">{% trans "Message" %}</label>
-                        <textarea name="text" class="form-control" id="join-message-text"></textarea>
+                        <label for="join-message-text" class="control-label">{% trans "Message" %}</label>
+                        <textarea name="text" class="form-control" id="join-message-text"
+                                  data-required-error="{% trans 'Please fill out the message.' %}" required></textarea>
+                        <div class="help-block with-errors"></div>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">{% trans "Close" %}</button>
-                <button type="submit" class="btn btn-primary">{% trans "Send" %}</button>
+                <button type="submit" class="btn btn-primary" disabled>{% trans "Send" %}</button>
             </div>
         </div>
     </div>

@@ -4,8 +4,10 @@ require('../css/global.css')
 
 require('font-awesome/css/font-awesome.css')
 global.$ = global.jQuery = require('jquery')
-require('bootstrap');
+require('bootstrap')
+require('bootstrap-validator')
 
+;
 (function ($) {
   $.fn.serializeJSON = function () {
     var serializeObj = {}
@@ -27,7 +29,8 @@ require('bootstrap');
 
 var joinMessageForm = $('#joinMessageModal form')
 var joinMessageModal = $('#joinMessageModal')
-joinMessageModal.find('button[type=\'submit\']').click(function (e) {
+var joinMessageSubmitButton = joinMessageModal.find('button[type=\'submit\']')
+joinMessageSubmitButton.click(function (e) {
   e.preventDefault()
   $.ajax({
     type: 'PUT',
@@ -49,3 +52,20 @@ joinMessageModal.find('button[type=\'submit\']').click(function (e) {
     contentType: 'application/json; charset=utf-8',
   })
 })
+
+var invalidFields = {}
+
+// 如果表单验证通过 则移除disabled属性
+joinMessageForm.on('valid.bs.validator', function (e) {
+  delete invalidFields[e.relatedTarget.name];
+  if ($.isEmptyObject(invalidFields)) {
+    joinMessageSubmitButton.removeAttr('disabled')
+  }
+})
+
+// 如果表单验证失败 则disable submit button
+joinMessageForm.on('invalid.bs.validator', function (e) {
+  invalidFields[e.relatedTarget.name] = true
+  joinMessageSubmitButton.attr('disabled', 'disabled')
+})
+
