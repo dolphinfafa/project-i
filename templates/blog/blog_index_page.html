@@ -28,14 +28,14 @@
                     <ul class="pager">
                         <li>
                             {% if posts.has_previous %}
-                                <a href="{% if posts.previous_page_number == 1 %}{% pageurl page %}{% else %}{% pageurl page %}?page={{ posts.previous_page_number }}{% endif %}">{% trans "Previous" %}</a>
+                                <a href="{{ request|get_pager_url:posts.previous_page_number }}">{% trans "Previous" %}</a>
                             {% else %}
                                 <a class="disabled" href="#">{% trans "Previous" %}</a>
                             {% endif %}
                         </li>
                         <li>
                             {% if posts.has_next %}
-                                <a href="{% pageurl page %}?page={{ posts.next_page_number }}">{% trans "Next" %}</a>
+                                <a href="{{ request|get_pager_url:posts.next_page_number }}">{% trans "Next" %}</a>
                             {% else %}
                                 <a class="disabled" href="#">{% trans "Next" %}</a>
                             {% endif %}
