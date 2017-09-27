@@ -11,7 +11,6 @@ ffx = pyffx.Integer(settings.PYFFX_KEY.encode(), length=5)
 
 
 class MessageView(View):
-
     @staticmethod
     def post(request):
         form = MessageForm(request.POST)
@@ -31,6 +30,9 @@ class MessageView(View):
                     message.save()
         else:
             data['msg'] = 'fail'
-            data['errors'] = form.errors
+            error_msg = ''
+            for k, v in form.errors.items():
+                error_msg += f'{k}: {v[0]}\n'
+            data['error'] = error_msg
             status_code = 400
         return JsonResponse(data=data, status=status_code)
