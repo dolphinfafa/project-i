@@ -25,6 +25,7 @@ from wagtail.wagtaildocs import urls as wagtaildocs_urls
 
 from jingpai.blog.views import BlogIndexView
 from jingpai.cms.views import HomeView
+from jingpai.message.views import MessageView
 from jingpai.utils.views import dummy_view
 
 urlpatterns = [
@@ -37,6 +38,7 @@ urlpatterns += i18n_patterns(
     url(r'^i18n/', include('django.conf.urls.i18n')),
     url(r'^shop/', include(application.urls)),
     url(r'^$', HomeView.as_view(), name="home"),
+    url(r'^message/$', MessageView.as_view(), name="message"),
     url(r'^blog/$', BlogIndexView.as_view(), name="blog"),
     url(r'', include(wagtail_urls)),  # should be placed at the bottom
 

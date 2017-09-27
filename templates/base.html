@@ -51,12 +51,20 @@
                 <h4 class="modal-title" id="joinMessageModalLabel">{% trans "Join Us" %}</h4>
             </div>
             <div class="modal-body">
-                <form action="#" method="POST">
+                <form action="{% url 'message' %}" method="POST">
+                    <div class="form-group">
+                        <label for="sender-name" class="control-label">{% trans "Name" %}{% trans ":" %}</label>
+                        <input name="name" type="text" class="form-control" id="sender-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="sender-email" class="control-label">{% trans "Email" %}{% trans ":" %}</label>
+                        <input name="email" type="text" class="form-control" id="sender-email">
+                    </div>
                     <div class="form-group">
                         <label for="message-text" class="control-label">{% trans "Message" %}{% trans ":" %}</label>
-                        <textarea class="form-control" name="message" id="join-message-text"></textarea>
-                        {% csrf_token %}
+                        <textarea name="text" class="form-control" id="join-message-text"></textarea>
                     </div>
+                    {% csrf_token %}
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">{% trans "Close" %}</button>
                         <button type="submit" class="btn btn-primary">{% trans "Send" %}</button>

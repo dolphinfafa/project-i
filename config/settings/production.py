@@ -17,3 +17,6 @@ SECRET_KEY = env('DJANGO_SECRET_KEY')
 # See https://docs.djangoproject.com/en/1.11/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default=['127.0.0.1', 'localhost', 'jingpai.co.uk', ])
 # END SITE CONFIGURATION
+
+# pyffx加密用密钥
+PYFFX_KEY = env('PYFFX_KEY')

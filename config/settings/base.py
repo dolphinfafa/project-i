@@ -68,6 +68,7 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     'jingpai.blog',
     'jingpai.cms',
+    'jingpai.message',
     'jingpai.template_prerender',
     'jingpai.utils',
 ]
