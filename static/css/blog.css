@@ -2,7 +2,7 @@
  * Globals
  */
 
-.blog-block {
+.container.blog-block {
   font-family: Georgia, "Times New Roman", Times, serif;
   color: #555;
 }
@@ -24,7 +24,7 @@
  */
 
 @media (min-width: 1200px) {
-  .blog-block .container {
+  .container.blog-block {
     width: 970px;
   }
 }

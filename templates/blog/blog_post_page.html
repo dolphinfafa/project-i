@@ -3,57 +3,55 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="blog-block">
-        <div class="container">
+    <div class="container blog-block">
 
-            <div class="blog-header">
-                <h1 class="blog-title">{{ page.title }}</h1>
-                <p class="lead blog-description">{{ page.intro }}</p>
-            </div>
-
-            <div class="row">
-
-                <div class="col-sm-8 blog-main">
-                    <div class="blog-post">
-                        <p class="blog-post-meta">{{ page.first_published_at.date }}</p>
-                        {{ page.body|richtext }}
-                        {#                        {% for item in page.gallery_images.all %}#}
-                        {#                            <div style="float: left; margin: 10px">#}
-                        {#                                {% image item.image fill-320x240 %}#}
-                        {#                                <p>{{ item.caption }}</p>#}
-                        {#                            </div>#}
-                        {#                        {% endfor %}#}
-                    </div><!-- /.blog-post -->
-                    <nav>
-                        <ul class="pager">
-                            <li><a href="{{ page.get_parent.url }}">{% trans "Return to blog" %}</a></li>
-                        </ul>
-                    </nav>
-
-                </div><!-- /.blog-main -->
-
-                <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
-                    {% with page.get_parent.specific as parent_page %}
-                        {% if parent_page.board_text %}
-                            <div class="sidebar-module sidebar-module-inset">
-                                <h4>{{ parent_page.board_title }}</h4>
-                                <p>{{ parent_page.board_text }}</p>
-                            </div>
-                        {% endif %}
-                    {% endwith %}
-                    <div class="sidebar-module">
-                        <h4>{% trans "Elsewhere" %}</h4>
-                        <ol class="list-unstyled">
-                            <li><a href="#">Facebook</a></li>
-                            <li><a href="#">Twitter</a></li>
-                            <li><a href="#">Linkedin</a></li>
-                            <li><a href="#">Pinterest</a></li>
-                        </ol>
-                    </div>
-                </div><!-- /.blog-sidebar -->
-
-            </div><!-- /.row -->
-
+        <div class="blog-header">
+            <h1 class="blog-title">{{ page.title }}</h1>
+            <p class="lead blog-description">{{ page.intro }}</p>
         </div>
+
+        <div class="row">
+
+            <div class="col-sm-8 blog-main">
+                <div class="blog-post">
+                    <p class="blog-post-meta">{{ page.first_published_at.date }}</p>
+                    {{ page.body|richtext }}
+                    {#                        {% for item in page.gallery_images.all %}#}
+                    {#                            <div style="float: left; margin: 10px">#}
+                    {#                                {% image item.image fill-320x240 %}#}
+                    {#                                <p>{{ item.caption }}</p>#}
+                    {#                            </div>#}
+                    {#                        {% endfor %}#}
+                </div><!-- /.blog-post -->
+                <nav>
+                    <ul class="pager">
+                        <li><a href="{{ page.get_parent.url }}">{% trans "Return to blog" %}</a></li>
+                    </ul>
+                </nav>
+
+            </div><!-- /.blog-main -->
+
+            <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+                {% with page.get_parent.specific as parent_page %}
+                    {% if parent_page.board_text %}
+                        <div class="sidebar-module sidebar-module-inset">
+                            <h4>{{ parent_page.board_title }}</h4>
+                            <p>{{ parent_page.board_text }}</p>
+                        </div>
+                    {% endif %}
+                {% endwith %}
+                <div class="sidebar-module">
+                    <h4>{% trans "Elsewhere" %}</h4>
+                    <ol class="list-unstyled">
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Linkedin</a></li>
+                        <li><a href="#">Pinterest</a></li>
+                    </ol>
+                </div>
+            </div><!-- /.blog-sidebar -->
+
+        </div><!-- /.row -->
+
     </div>
 {% endblock %}
