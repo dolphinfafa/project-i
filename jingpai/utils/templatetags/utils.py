@@ -22,7 +22,8 @@ def get_pager_url(request, page):
         del params['page']
     else:
         params['page'] = page
+
     if params:
         return f'{request.path}?{params.urlencode()}'
-    else:
-        return request.path
+
+    return request.path
