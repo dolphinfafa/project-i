@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import environ
+
+from django.utils.translation import ugettext_lazy as _
+
 from oscar import get_core_apps
 from oscar.defaults import *  # noqa
 
@@ -166,7 +169,6 @@ LANGUAGE_CODE = 'en'
 
 # All available languages
 # https://docs.djangoproject.com/en/1.11/ref/settings/#languages
-from django.utils.translation import ugettext_lazy as _
 
 LANGUAGES = (
     ('en', _(u'English')),
@@ -233,3 +235,5 @@ HAYSTACK_CONNECTIONS = {
         'ENGINE': 'haystack.backends.simple_backend.SimpleEngine',
     },
 }
+
+OSCAR_SHOP_NAME = _("Jingpai Shop")
