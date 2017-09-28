@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-28 04:08+0000\n"
+"POT-Creation-Date: 2017-09-28 09:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,20 +17,24 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: config/settings/base.py:172
+#: config/settings/base.py:174
 msgid "English"
 msgstr ""
 
-#: config/settings/base.py:173
+#: config/settings/base.py:175
 msgid "简体中文"
 msgstr ""
 
-#: config/settings/base.py:174
+#: config/settings/base.py:176
 msgid "繁體中文"
 msgstr ""
 
-#: config/settings/base.py:223 templates/base.html:28
+#: config/settings/base.py:225 templates/partials/nav.html:15
 msgid "Jingpai UK"
+msgstr ""
+
+#: config/settings/base.py:239
+msgid "Jingpai Shop"
 msgstr ""
 
 #: jingpai/blog/models.py:23
@@ -97,40 +101,11 @@ msgid ""
 "as possible."
 msgstr ""
 
-#: templates/base.html:27
-msgid "Jingpai Logo"
-msgstr ""
-
-#: templates/base.html:33 templates/customer/alerts/alert_list.html:12
-#: templates/customer/anon_order.html:58
-#: templates/customer/order/order_detail.html:17
-#: templates/customer/wishlists/wishlists_detail.html:31
-#: templates/dashboard/catalogue/stockalert_list.html:48
-#: templates/dashboard/orders/order_detail.html:109
-#: templates/dashboard/reports/partials/product_report.html:8
-#: templates/dashboard/reviews/review_delete.html:37
-#: templates/dashboard/reviews/review_list.html:57
-#: templates/dashboard/users/alerts/list.html:44
-#: templates/dashboard/users/alerts/partials/alert.html:6
-msgid "Product"
-msgstr ""
-
-#: templates/base.html:34
-msgid "Brand"
-msgstr ""
-
-#: templates/base.html:35 templates/dashboard/orders/line_detail.html:135
-#: templates/dashboard/orders/line_detail.html:166
-#: templates/dashboard/orders/order_detail.html:343
-#: templates/dashboard/orders/order_detail.html:389
-msgid "Event"
-msgstr ""
-
-#: templates/base.html:39 templates/base.html:51
+#: templates/base.html:23 templates/partials/nav.html:27
 msgid "Join Us"
 msgstr ""
 
-#: templates/base.html:56 templates/customer/profile/profile.html:9
+#: templates/base.html:28 templates/customer/profile/profile.html:9
 #: templates/customer/wishlists/wishlists_list.html:9
 #: templates/dashboard/catalogue/product_class_form.html:96
 #: templates/dashboard/catalogue/product_class_list.html:26
@@ -155,7 +130,7 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: templates/base.html:60 templates/checkout/checkout.html:49
+#: templates/base.html:32 templates/checkout/checkout.html:49
 #: templates/checkout/thank_you.html:52
 #: templates/dashboard/partners/partner_manage.html:41
 #: templates/dashboard/partners/partner_user_list.html:43
@@ -168,73 +143,30 @@ msgstr ""
 msgid "Email"
 msgstr ""
 
-#: templates/base.html:62
+#: templates/base.html:34
 msgid "The email address is invalid."
 msgstr ""
 
-#: templates/base.html:63
+#: templates/base.html:35
 msgid "Please enter an email address."
 msgstr ""
 
-#: templates/base.html:67 templates/customer/notifications/detail.html:33
+#: templates/base.html:39 templates/customer/notifications/detail.html:33
 #: templates/dashboard/orders/order_detail.html:565
 #: templates/dashboard/orders/order_detail.html:612
 msgid "Message"
 msgstr ""
 
-#: templates/base.html:69
+#: templates/base.html:41
 msgid "Please fill out the message."
 msgstr ""
 
-#: templates/base.html:75 templates/dashboard/orders/order_list.html:72
+#: templates/base.html:47 templates/dashboard/orders/order_list.html:72
 msgid "Close"
 msgstr ""
 
-#: templates/base.html:76
+#: templates/base.html:48
 msgid "Send"
-msgstr ""
-
-#: templates/base.html:88
-msgid "ARE YOU THE LEGAL AGE TO DRINK?"
-msgstr ""
-
-#: templates/base.html:92
-msgid ""
-"To access our websites, you must be of legal purchase age in your country of "
-"access or older."
-msgstr ""
-
-#: templates/base.html:95
-#, python-format
-msgid ""
-"By entering, you confirm you are the legal age to purchase alcohol and\n"
-"                    accept our <a href=\"%(privacy_url)s\" target=\"_blank"
-"\">privacy and cookie notice</a>\n"
-"                    ."
-msgstr ""
-
-#: templates/base.html:101
-msgid "Remember me on this device(unless shared)"
-msgstr ""
-
-#: templates/base.html:106
-msgid "Exit"
-msgstr ""
-
-#: templates/base.html:107
-msgid "Enter"
-msgstr ""
-
-#: templates/base.html:154
-msgid "About Us"
-msgstr ""
-
-#: templates/base.html:155
-msgid "Privacy Policy"
-msgstr ""
-
-#: templates/base.html:156
-msgid "Terms of Service"
 msgstr ""
 
 #: templates/basket/basket.html:6 templates/basket/basket.html:14
@@ -832,7 +764,6 @@ msgstr ""
 #: templates/dashboard/orders/order_list.html:109
 #: templates/dashboard/orders/partials/bulk_edit_form.html:6
 #: templates/dashboard/orders/partials/bulk_edit_form.html:27
-#: templates/partials/nav_accounts.html:29
 msgid "Submitting..."
 msgstr ""
 
@@ -1017,7 +948,6 @@ msgid "All reviews"
 msgstr ""
 
 #: templates/catalogue/reviews/review_list.html:44
-#: templates/partials/nav_accounts.html:29
 msgid "Go"
 msgstr ""
 
@@ -1484,6 +1414,21 @@ msgstr ""
 msgid "You do not have any active alerts for out-of-stock products."
 msgstr ""
 
+#: templates/customer/alerts/alert_list.html:12
+#: templates/customer/anon_order.html:58
+#: templates/customer/order/order_detail.html:17
+#: templates/customer/wishlists/wishlists_detail.html:31
+#: templates/dashboard/catalogue/stockalert_list.html:48
+#: templates/dashboard/orders/order_detail.html:109
+#: templates/dashboard/reports/partials/product_report.html:8
+#: templates/dashboard/reviews/review_delete.html:37
+#: templates/dashboard/reviews/review_list.html:57
+#: templates/dashboard/users/alerts/list.html:44
+#: templates/dashboard/users/alerts/partials/alert.html:6
+#: templates/partials/nav.html:20
+msgid "Product"
+msgstr ""
+
 #: templates/customer/alerts/alert_list.html:13
 #: templates/customer/anon_order.html:14 templates/customer/anon_order.html:59
 #: templates/dashboard/catalogue/stockalert_list.html:53
@@ -1574,8 +1519,8 @@ msgstr ""
 #: templates/customer/wishlists/wishlists_delete_product.html:10
 #: templates/customer/wishlists/wishlists_detail.html:12
 #: templates/customer/wishlists/wishlists_form.html:10
-#: templates/dashboard/layout.html:28 templates/partials/nav_accounts.html:39
-#: templates/partials/nav_accounts.html:43
+#: templates/dashboard/layout.html:28 templates/partials/nav_accounts.html:9
+#: templates/partials/nav_accounts.html:13
 msgid "Account"
 msgstr ""
 
@@ -1887,7 +1832,7 @@ msgstr ""
 
 #: templates/customer/login_registration.html:5
 #: templates/customer/login_registration.html:13
-#: templates/partials/nav_accounts.html:51
+#: templates/partials/nav_accounts.html:25
 msgid "Login or register"
 msgstr ""
 
@@ -2311,7 +2256,7 @@ msgstr ""
 #: templates/dashboard/vouchers/voucher_detail.html:12
 #: templates/dashboard/vouchers/voucher_form.html:14
 #: templates/dashboard/vouchers/voucher_list.html:13
-#: templates/partials/nav_accounts.html:47
+#: templates/partials/nav_accounts.html:17
 msgid "Dashboard"
 msgstr ""
 
@@ -3270,6 +3215,14 @@ msgstr ""
 
 #: templates/dashboard/orders/line_detail.html:130
 msgid "Shipping events"
+msgstr ""
+
+#: templates/dashboard/orders/line_detail.html:135
+#: templates/dashboard/orders/line_detail.html:166
+#: templates/dashboard/orders/order_detail.html:343
+#: templates/dashboard/orders/order_detail.html:389
+#: templates/partials/nav.html:22
+msgid "Event"
 msgstr ""
 
 #: templates/dashboard/orders/line_detail.html:137
@@ -4826,6 +4779,49 @@ msgstr ""
 msgid "Browse products in offer"
 msgstr ""
 
+#: templates/partials/age_verification_modal.html:8
+msgid "ARE YOU THE LEGAL AGE TO DRINK?"
+msgstr ""
+
+#: templates/partials/age_verification_modal.html:12
+msgid ""
+"To access our websites, you must be of legal purchase age in your country of "
+"access or older."
+msgstr ""
+
+#: templates/partials/age_verification_modal.html:15
+#, python-format
+msgid ""
+"By entering, you confirm you are the legal age to purchase alcohol and\n"
+"                    accept our <a href=\"%(privacy_url)s\" target=\"_blank"
+"\">privacy and cookie notice</a>\n"
+"                    ."
+msgstr ""
+
+#: templates/partials/age_verification_modal.html:21
+msgid "Remember me on this device(unless shared)"
+msgstr ""
+
+#: templates/partials/age_verification_modal.html:26
+msgid "Exit"
+msgstr ""
+
+#: templates/partials/age_verification_modal.html:27
+msgid "Enter"
+msgstr ""
+
+#: templates/partials/footer.html:45
+msgid "About Us"
+msgstr ""
+
+#: templates/partials/footer.html:46
+msgid "Privacy Policy"
+msgstr ""
+
+#: templates/partials/footer.html:47
+msgid "Terms of Service"
+msgstr ""
+
 #: templates/partials/image_input_widget.html:7
 #: templates/partials/image_input_widget.html:10
 msgid "thumbnail"
@@ -4839,7 +4835,19 @@ msgstr ""
 msgid "Upload Image"
 msgstr ""
 
-#: templates/partials/nav_accounts.html:49
+#: templates/partials/nav.html:14
+msgid "Jingpai Logo"
+msgstr ""
+
+#: templates/partials/nav.html:21
+msgid "Brand"
+msgstr ""
+
+#: templates/partials/nav.html:23
+msgid "Shop"
+msgstr ""
+
+#: templates/partials/nav_accounts.html:21
 msgid "Logout"
 msgstr ""
 
