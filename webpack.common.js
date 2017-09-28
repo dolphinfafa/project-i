@@ -57,6 +57,11 @@ const TEMPLATES = {
     'catalogue/partials/product.html',
     'customer/history/recently_viewed_products.html',
     'promotions/default.html',
+
+    'dashboard/table.html',
+    'dashboard/users/table.html',
+    'dashboard/users/user_row_checkbox.html',
+    'dashboard/users/user_row_actions.html',
   ],
   // Chunk to template paths mapping
   mapping: {
@@ -144,7 +149,6 @@ const TEMPLATES = {
     ],
     'oscar/dashboard/layout': [
       'dashboard/index.html',
-      'dashboard/table.html',
       'dashboard/login.html',
 
       'dashboard/catalogue/category_delete.html',
