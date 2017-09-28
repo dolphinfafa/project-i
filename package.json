@@ -22,6 +22,7 @@
     "file-loader": "0.11.2",
     "gulp": "3.9.1",
     "html-webpack-plugin": "2.30.1",
+    "jscs": "3.0.7",
     "less": "2.7.2",
     "less-loader": "4.0.5",
     "only-if-changed-webpack-plugin": "^0.0.1",
