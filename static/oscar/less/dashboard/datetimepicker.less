@@ -1,12 +1,19 @@
 .datetimepicker {
   .glyphicon {
-    .icon-FontAwesome();
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: inherit;
+    -webkit-font-smoothing: antialiased;
+    *margin-right: .3em; // fixes ie7 issues
 
-    &.glyphicon-arrow-left:before { &:extend(.icon-arrow-left:before); }
-    &.glyphicon-arrow-right:before { &:extend(.icon-arrow-right:before); }
+    &.glyphicon-arrow-left:before { &:extend(.icon-arrow-left:before);
+    }
+    &.glyphicon-arrow-right:before { &:extend(.icon-arrow-right:before);
+    }
   }
 }
 
 .form-inline .form-group .form-inline {
-    display: inline-block;
+  display: inline-block;
 }

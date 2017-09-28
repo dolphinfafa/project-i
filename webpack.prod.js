@@ -21,6 +21,27 @@ module.exports = merge(common, {
   ],
 })
 
+var lessrule = {
+  test: /\.less/,
+  use: ExtractTextWebpackPlugin.extract({
+    fallback: 'style-loader',
+    use: [
+      {
+        loader: 'css-loader',
+        options: {
+          minimize: true,
+          sourceMap: true,
+        },
+      },
+      {
+        loader: 'less-loader',
+      },
+    ],
+  }),
+}
+
+module.exports.module.rules.push(lessrule)
+
 var cssrule = {
   test: /\.css$/,
   use: ExtractTextWebpackPlugin.extract({

@@ -1,10 +1,6 @@
-require('bootstrap/dist/css/bootstrap.css')
-require('../css/bootstrap4/utilities.css')
+require('./bootstrap.js')
 require('../css/global.css')
 
-require('font-awesome/css/font-awesome.css')
-global.$ = global.jQuery = require('jquery')
-require('bootstrap')
 require('bootstrap-validator')
 global.Cookies = require('js-cookie')
 

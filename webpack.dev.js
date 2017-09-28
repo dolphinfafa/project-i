@@ -11,6 +11,23 @@ module.exports = merge(common, {
   devtool: 'inline-source-map',
 })
 
+var lessrule = {
+  test: /\.less/,
+  use: ExtractTextWebpackPlugin.extract({
+    fallback: 'style-loader',
+    use: [
+      {
+        loader: 'css-loader',
+      },
+      {
+        loader: 'less-loader',
+      },
+    ],
+  }),
+}
+
+module.exports.module.rules.push(lessrule)
+
 var cssrule = {
   test: /\.css$/,
   use: ExtractTextWebpackPlugin.extract({
