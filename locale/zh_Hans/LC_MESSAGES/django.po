@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-27 13:52+0000\n"
+"POT-Creation-Date: 2017-09-28 04:08+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -195,15 +195,46 @@ msgstr ""
 msgid "Send"
 msgstr ""
 
-#: templates/base.html:123
+#: templates/base.html:88
+msgid "ARE YOU THE LEGAL AGE TO DRINK?"
+msgstr ""
+
+#: templates/base.html:92
+msgid ""
+"To access our websites, you must be of legal purchase age in your country of "
+"access or older."
+msgstr ""
+
+#: templates/base.html:95
+#, python-format
+msgid ""
+"By entering, you confirm you are the legal age to purchase alcohol and\n"
+"                    accept our <a href=\"%(privacy_url)s\" target=\"_blank"
+"\">privacy and cookie notice</a>\n"
+"                    ."
+msgstr ""
+
+#: templates/base.html:101
+msgid "Remember me on this device(unless shared)"
+msgstr ""
+
+#: templates/base.html:106
+msgid "Exit"
+msgstr ""
+
+#: templates/base.html:107
+msgid "Enter"
+msgstr ""
+
+#: templates/base.html:154
 msgid "About Us"
 msgstr ""
 
-#: templates/base.html:124
+#: templates/base.html:155
 msgid "Privacy Policy"
 msgstr ""
 
-#: templates/base.html:125
+#: templates/base.html:156
 msgid "Terms of Service"
 msgstr ""
 

@@ -6,6 +6,7 @@ require('font-awesome/css/font-awesome.css')
 global.$ = global.jQuery = require('jquery')
 require('bootstrap')
 require('bootstrap-validator')
+global.Cookies = require('js-cookie')
 
 ;
 (function ($) {
@@ -57,7 +58,7 @@ var invalidFields = {}
 
 // 如果表单验证通过 则移除disabled属性
 joinMessageForm.on('valid.bs.validator', function (e) {
-  delete invalidFields[e.relatedTarget.name];
+  delete invalidFields[e.relatedTarget.name]
   if ($.isEmptyObject(invalidFields)) {
     joinMessageSubmitButton.removeAttr('disabled')
   }
@@ -67,5 +68,29 @@ joinMessageForm.on('valid.bs.validator', function (e) {
 joinMessageForm.on('invalid.bs.validator', function (e) {
   invalidFields[e.relatedTarget.name] = true
   joinMessageSubmitButton.attr('disabled', 'disabled')
+})
+
+var ageVerificationModal = $('#ageVerificationModal')
+var ageVerify = Cookies.get('age_verified')
+
+// 年龄未被验证且页面非酒精内容页面
+if (ageVerify == undefined &&
+  window.location.pathname.indexOf('privacy-policy') == -1) {
+  // 使点击外部区域不会关闭modal
+  ageVerificationModal.modal({backdrop: 'static', keyboard: false})
+  ageVerificationModal.modal('show')
+}
+
+ageVerificationModal.find('button[data-dismiss=\'modal\']').click(function () {
+  if (ageVerificationModal.find('input[type=\'checkbox\']').prop('checked')) {
+    Cookies.set('age_verified', true, {expires: 30})
+  } else {
+    Cookies.set('age_verified', true)
+  }
+})
+
+ageVerificationModal.find('button:first').click(function () {
+  window.location.href = 'about:blank'
+  window.close()
 })
 
