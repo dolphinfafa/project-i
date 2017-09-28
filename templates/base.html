@@ -2,7 +2,6 @@
 {% load utils %}
 {% load wagtailcore_tags %}
 {% get_current_language as LANGUAGE_CODE %}
-{% get_language_info for LANGUAGE_CODE as lang %}
 <!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE }}">
 <head>
@@ -113,63 +112,6 @@
     {% block content %}
     {% endblock content %}
 </div>
-<footer class="footer bg-dark text-white mt-5 pt-3">
-    <div class="container">
-        <div class="row text-center d-block d-sm-none">
-            <div class="col-12">
-                <select class="w-100 text-dark" onChange="window.location.href=this.value">
-                    <option value="{{ request|get_locale_setter_url:'en' }}"{% if LANGUAGE_CODE == "en" %}
-                            selected{% endif %}>
-                        English
-                    </option>
-                    <option value="{{ request|get_locale_setter_url:'zh-hans' }}"{% if LANGUAGE_CODE == "zh-hans" %}
-                            selected{% endif %}>
-                        简体中文
-                    </option>
-                    <option value="{{ request|get_locale_setter_url:'zh-hant' }}"{% if LANGUAGE_CODE == "zh-hant" %}
-                            selected{% endif %}>
-                        繁體中文
-                    </option>
-                </select>
-            </div>
-        </div>
-        <div class="row mt-4">
-            <div class="col-sm-2 d-none d-sm-block">
-                <div class="dropdown dropup">
-                    <button id="languageMenuButton" class="btn btn-default" type="button" data-toggle="dropdown"
-                            aria-haspopup="true"
-                            aria-expanded="false">
-                        {{ lang.name_local }} <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="languageMenuButton">
-                        <li><a href="{{ request|get_locale_setter_url:'en' }}" rel="nofollow">English</a></li>
-                        <li><a href="{{ request|get_locale_setter_url:'zh-hans' }}" rel="nofollow">简体中文</a></li>
-                        <li><a href="{{ request|get_locale_setter_url:'zh-hant' }}" rel="nofollow">繁體中文</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-sm-7">
-                <span>
-                    <ul class="nav nav-pills nav-justified">
-                        <li><a href="{% url 'about' %}">{% trans "About Us" %}</a></li>
-                        <li><a href="{% url 'privacy_policy' %}">{% trans "Privacy Policy" %}</a></li>
-                        <li><a href="{% url 'terms_of_service' %}">{% trans "Terms of Service" %}</a></li>
-                    </ul>
-                </span>
-            </div>
-            <div class="col-sm-3 text-center text-md-right">
-                <span class="social-icon">
-                    <a href="#" class="ml-3"><i class="fa fa-facebook"></i></a>
-                    <a href="#" class="ml-3"><i class="fa fa-twitter"></i></a>
-                    <a href="#" class="ml-3"><i class="fa fa-linkedin"></i></a>
-                    <a href="#" class="ml-3"><i class="fa fa-pinterest"></i></a>
-                </span>
-            </div>
-        </div>
-        <div class="row text-center mt-5">
-            <p>2017 © All Rights Reserved</p>
-        </div>
-    </div>
-</footer>
+{% include "partials/footer.html" %}
 </body>
 </html>

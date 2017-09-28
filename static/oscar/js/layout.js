@@ -1,5 +1,6 @@
 require('../../js/bootstrap.js')
 require('../less/styles.less')
+require('../../css/global.css')
 require('../css//bootstrap-datetimepicker.css')
 require('../css/datetimepicker.css')
 
