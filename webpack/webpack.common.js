@@ -1,3 +1,4 @@
+const path = require('path')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var CopyWebpackPlugin = require('copy-webpack-plugin')
 
@@ -11,7 +12,7 @@ module.exports = {
     'oscar/dashboard/layout': ['./static/oscar/js/dashboard/layout.js'],
   },
   output: {
-    path: __dirname + '/dist',
+    path: path.dirname(__dirname) + '/dist',
     publicPath: '/static/',
   },
   module: {
@@ -256,12 +257,12 @@ module.exports.plugins.push(new CopyWebpackPlugin(copyconf))
 for (var chunk in TEMPLATES.mapping) {
   var i = TEMPLATES.mapping[chunk].length
   while (i--) {
-    var path = TEMPLATES.mapping[chunk][i]
+    var tplpath = TEMPLATES.mapping[chunk][i]
     module.exports.plugins.push(new HtmlWebpackPlugin({
-      template: TEMPLATES.root + path,
+      template: TEMPLATES.root + tplpath,
       chunks: [chunk],
       inject: TEMPLATES.inject,
-      filename: path,
+      filename: tplpath,
     }))
   }
 }

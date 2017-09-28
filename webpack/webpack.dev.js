@@ -1,3 +1,4 @@
+const path = require('path')
 const merge = require('webpack-merge')
 const common = require('./webpack.common.js')
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin')
@@ -47,7 +48,7 @@ var pathsToClean = [
 
 // the clean options to use
 var cleanOptions = {
-  root: __dirname,
+  root: path.dirname(__dirname),
   exclude: ['html5shiv.min.js'],
   verbose: true,
   dry: false,
