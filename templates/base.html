@@ -12,34 +12,7 @@
 </head>
 <body>
 <header>
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                        aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand py-0 px-0 px-sm-1" href="{% url 'home' %}">
-                    <span><img src="/static/img/logo.png" alt="{% trans "Jingpai Logo" %}" height="100%"></span>
-                    <span>{% trans "Jingpai UK" %}</span>
-                </a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{% url 'home' %}#product">{% trans "Product" %}</a></li>
-                    <li><a href="{% url 'home' %}#brand">{% trans "Brand" %}</a></li>
-                    <li><a href="{% url 'home' %}#event">{% trans "Event" %}</a></li>
-                    {#                <li><a href="#">{% trans "Shop" %}</a></li>#}
-                    <a type="button" class="btn btn-default" data-toggle="modal"
-                       data-target="#joinMessageModal"
-                       style="margin-top: 7px;margin-left: 7px;">{% trans "Join Us" %}</a>
-                </ul>
-            </div><!--/.nav-collapse -->
-        </div>
-    </nav>
+    {% include "partials/nav.html" %}
 </header>
 <div class="modal fade" id="joinMessageModal" tabindex="-1" role="dialog" aria-labelledby="joinMessageModalLabel">
     <div class="modal-dialog" role="document">
