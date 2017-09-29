@@ -1,3 +1,3 @@
-require('./layout.js')
+require('./layout.js');
 
-require('../css/blog.css')
+require('../css/blog.css');

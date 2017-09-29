@@ -1,6 +1,6 @@
-const path = require('path')
-var HtmlWebpackPlugin = require('html-webpack-plugin')
-var CopyWebpackPlugin = require('copy-webpack-plugin')
+const path = require('path');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -17,6 +17,7 @@ module.exports = {
   },
   module: {
     rules: [
+
       // the url-loader uses DataUrls.
       // the file-loader emits files.
       {
@@ -46,14 +47,16 @@ module.exports = {
     loaders: [],
   },
   plugins: [],
-}
+};
 
 const TEMPLATES = {
   root: 'jingpai/templates/',
   inject: 'body',
   copy: [
+
     // 邮件模板
     'customer/emails/',
+
     // Template Tags里使用到
     'catalogue/partials/product.html',
     'customer/history/recently_viewed_products.html',
@@ -64,14 +67,15 @@ const TEMPLATES = {
     'dashboard/users/user_row_checkbox.html',
     'dashboard/users/user_row_actions.html',
   ],
+
   // Chunk to template paths mapping
   mapping: {
-    'home': ['cms/home_page.html'],
-    'blog': [
+    home: ['cms/home_page.html'],
+    blog: [
       'blog/blog_index_page.html',
       'blog/blog_post_page.html',
     ],
-    'layout': [
+    layout: [
       'cms/custom_page.html',
     ],
     'oscar/layout': [
@@ -241,28 +245,28 @@ const TEMPLATES = {
       'dashboard/vouchers/voucher_list.html',
     ],
   },
-}
+};
 
-var i = TEMPLATES.copy.length
-var copyconf = []
+var i = TEMPLATES.copy.length;
+var copyconf = [];
 while (i--) {
   copyconf.push({
     from: TEMPLATES.root + TEMPLATES.copy[i],
     to: module.exports.output.path + '/' + TEMPLATES.copy[i],
-  })
+  });
 }
 
-module.exports.plugins.push(new CopyWebpackPlugin(copyconf))
+module.exports.plugins.push(new CopyWebpackPlugin(copyconf));
 
 for (var chunk in TEMPLATES.mapping) {
-  var i = TEMPLATES.mapping[chunk].length
+  var i = TEMPLATES.mapping[chunk].length;
   while (i--) {
-    var tplpath = TEMPLATES.mapping[chunk][i]
+    var tplpath = TEMPLATES.mapping[chunk][i];
     module.exports.plugins.push(new HtmlWebpackPlugin({
       template: TEMPLATES.root + tplpath,
       chunks: [chunk],
       inject: TEMPLATES.inject,
       filename: tplpath,
-    }))
+    }));
   }
 }

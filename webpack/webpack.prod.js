@@ -1,8 +1,8 @@
-const webpack = require('webpack')
-const merge = require('webpack-merge')
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
-const common = require('./webpack.common.js')
-const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin')
+const webpack = require('webpack');
+const merge = require('webpack-merge');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const common = require('./webpack.common.js');
+const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 
 module.exports = merge(common, {
   output: {
@@ -15,11 +15,11 @@ module.exports = merge(common, {
     }),
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': JSON.stringify('production'),
+        NODE_ENV: JSON.stringify('production'),
       },
     }),
   ],
-})
+});
 
 var lessrule = {
   test: /\.less/,
@@ -38,9 +38,9 @@ var lessrule = {
       },
     ],
   }),
-}
+};
 
-module.exports.module.rules.push(lessrule)
+module.exports.module.rules.push(lessrule);
 
 var cssrule = {
   test: /\.css$/,
@@ -54,8 +54,8 @@ var cssrule = {
       },
     },
   }),
-}
+};
 
-module.exports.module.rules.push(cssrule)
+module.exports.module.rules.push(cssrule);
 module.exports.plugins.push(
-  new ExtractTextWebpackPlugin('css/[name].[chunkhash].css'))
+  new ExtractTextWebpackPlugin('css/[name].[chunkhash].css'));

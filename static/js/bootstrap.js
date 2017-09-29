@@ -1,6 +1,6 @@
-require('bootstrap/dist/css/bootstrap.css')
-require('font-awesome/css/font-awesome.css')
-require('../css/bootstrap4/utilities.css')
+require('bootstrap/dist/css/bootstrap.css');
+require('font-awesome/css/font-awesome.css');
+require('../css/bootstrap4/utilities.css');
 
-global.$ = global.jQuery = require('jquery')
-require('bootstrap')
+global.$ = global.jQuery = require('jquery');
+require('bootstrap');
