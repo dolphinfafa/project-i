@@ -151,5 +151,62 @@
                 <a class="btn btn-default btn-lg" href="{% url 'blog' %}" role="button">{% trans "Find more events" %} »</a>
             </div>
         </div>
+        {% if retails %}
+            <hr class="featurette-divider">
+            <div id="find-us" class="row mb-5 text-center">
+                <span><h2 class="featurette-heading">{% trans "You Can Find Us Here" %}</h2></span>
+            </div>
+            <div class="row">
+                <div style="height:400px;" class="px-4">
+                    <div id="map" class="w-100 h-100">
+                    </div>
+                </div>
+            </div>
+        {% endif %}
     </div>
 {% endblock content %}
+
+{% block extrascript %}
+    <script>
+      function initMap () {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 12,
+          center: { lat: 51.5090106, lng: -0.1551624 },
+        });
+        var locations = [
+          {% for retail in retails %}
+            {
+              lat: {{ retail.position.latitude}},
+              lng: {{ retail.position.longitude }},
+              title: '{{ retail.name|safe }}',
+              description: '{{ retail.description|safe }}',
+            },
+          {% endfor %}
+        ];
+        var markers = locations.map(function (location) {
+          var marker = new google.maps.Marker({
+            position: { lat: location.lat, lng: location.lng },
+            map: map,
+          });
+          var contentString = '<div id="content">' +
+            '<h4>' + location.title + '</h4>' +
+            '<div>' +
+            '<p>' + location.description + '</p>' +
+            '</div>' +
+            '</div>';
+          var infowindow = new google.maps.InfoWindow({
+            content: contentString,
+          });
+          marker.addListener('click', function () {
+            infowindow.open(map, marker);
+          });
+          return marker;
+        });
+      }
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key={{ GOOGLE_MAPS_API_KEY }}&callback=initMap">
+    </script>
+{% endblock %}
+
+

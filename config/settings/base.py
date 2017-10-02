@@ -17,7 +17,6 @@ from django.utils.translation import ugettext_lazy as _
 from oscar import get_core_apps
 from oscar.defaults import *  # noqa
 
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = environ.Path(__file__) - 3  # project-i/config/settings/base.py - 3 = project-i/jingpai
 
@@ -65,6 +64,8 @@ THIRD_PARTY_APPS = [
     # For Oscar
     'compressor',
     'widget_tweaks',
+
+    'geoposition',
 ] + get_core_apps()
 
 # Apps specific for this project go here.
@@ -72,6 +73,7 @@ LOCAL_APPS = [
     'jingpai.blog',
     'jingpai.cms',
     'jingpai.message',
+    'jingpai.retail',
     'jingpai.template_prerender',
     'jingpai.utils',
 ]
@@ -237,3 +239,10 @@ HAYSTACK_CONNECTIONS = {
 }
 
 OSCAR_SHOP_NAME = _("Jingpai Shop")
+
+# Geoposition Settings
+
+GEOPOSITION_MAP_OPTIONS = {
+    'center': {'lat': 51.5090106, 'lng': -0.1551624},
+    'zoom': 12,
+}

@@ -20,3 +20,6 @@ ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default=['127.0.0.1', 'localhos
 
 # pyffx加密用密钥
 PYFFX_KEY = env('PYFFX_KEY')
+
+# Geoposition Settings
+GEOPOSITION_GOOGLE_MAPS_API_KEY = env("GOOGLE_MAPS_API_KEY")

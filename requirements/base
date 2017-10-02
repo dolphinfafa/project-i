@@ -29,3 +29,7 @@ pycountry==17.5.14
 # A pure Python implementation of Format-preserving, Feistel-based encryption (FFX).
 # https://github.com/emulbreh/pyffx
 pyffx==0.2.0
+
+# Django model field that can hold a geoposition, and corresponding widget
+# https://django-geoposition.readthedocs.io/en/latest/
+git+https://github.com/philippbosch/django-geoposition@4ed9121

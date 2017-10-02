@@ -26,3 +26,6 @@ INTERNAL_IPS = ['127.0.0.1', 'localhost', ]
 
 # pyffx加密用密钥
 PYFFX_KEY = env('PYFFX_KEY', default='CHANGEME!!!')
+
+# Geoposition Settings
+GEOPOSITION_GOOGLE_MAPS_API_KEY = env('GOOGLE_MAPS_API_KEY', default='')
