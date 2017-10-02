@@ -39,6 +39,9 @@ make report
 ```
 
 ## Build static files for development
+
+make new directory 'tmp' under root and 'cache' under /tmp
+
 ```
 make build
 ```
