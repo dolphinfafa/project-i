@@ -52,6 +52,7 @@ make build-prod
 ```
 $DJANGO_SECRET_KEY     Random String
 $PYFFX_KEY             Random String
+$GOOGLE_MAPS_API_KEY   Google Maps Javascript API Key
 $JING_STATIC_DIR       Static Diretory Path
 $JING_MEDIA_DIR        Media Diretory Path
 ```
