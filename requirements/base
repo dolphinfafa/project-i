@@ -16,7 +16,7 @@ git+https://github.com/infoportugal/wagtail-modeltranslation@v0.8
 
 # Domain-driven e-commerce for Django
 # https://django-oscar.readthedocs.io/en/releases-1.5/
-django-oscar==1.5
+django-oscar==1.5.1
 
 # Compresses linked and inline JavaScript or CSS into a single cached file.
 # https://django-compressor.readthedocs.io/en/latest/
