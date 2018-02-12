@@ -60,6 +60,7 @@ THIRD_PARTY_APPS = [
     'taggit',
 
     'wagtail_modeltranslation',
+    'wagtail_modeltranslation.makemigrations',
 
     # For Oscar
     'compressor',

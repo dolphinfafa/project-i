@@ -1,11 +1,11 @@
 from modeltranslation.decorators import register
-from wagtail_modeltranslation.translator import WagtailTranslationOptions
+from modeltranslation.translator import TranslationOptions
 
 from .models import BlogIndexPage, BlogPostPage, PostGalleryImage
 
 
 @register(BlogIndexPage)
-class BlogIndexPageTR(WagtailTranslationOptions):
+class BlogIndexPageTR(TranslationOptions):
     fields = (
         'intro',
         'board_title',
@@ -14,7 +14,7 @@ class BlogIndexPageTR(WagtailTranslationOptions):
 
 
 @register(BlogPostPage)
-class BlogPostPageTR(WagtailTranslationOptions):
+class BlogPostPageTR(TranslationOptions):
     fields = (
         'intro',
         'body',
@@ -22,7 +22,7 @@ class BlogPostPageTR(WagtailTranslationOptions):
 
 
 @register(PostGalleryImage)
-class PostGalleryImageTR(WagtailTranslationOptions):
+class PostGalleryImageTR(TranslationOptions):
     fields = (
         'caption',
     )
